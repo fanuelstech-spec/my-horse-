@@ -14,6 +14,7 @@ import {
   CheckCircle2,
   X,
   FileText,
+  AlertCircle,
 } from 'lucide-react';
 import { useEstate } from '../../lib/estateContext';
 import { AdminHeader } from '../../components/admin/AdminHeader';

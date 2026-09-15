@@ -694,63 +694,54 @@ export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   // 6. Authentication
   const loginAsAdmin = useCallback(async (email: string, password?: string) => {
-    if (isSupabaseConfigured && supabase && password) {
-      try {
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-        if (error) {
-          return { success: false, error: error.message };
-        }
-        if (data.user) {
-          const { data: profile } = await supabase
-            .from('profiles')
-            .select('*')
-            .eq('id', data.user.id)
-            .maybeSingle();
+    if (!isSupabaseConfigured || !supabase) {
+      return { success: false, error: 'Database is not configured. Please add Supabase credentials.' };
+    }
+    
+    if (!password) {
+      return { success: false, error: 'Password is required.' };
+    }
 
-          const userProfile: Profile = profile || {
-            id: data.user.id,
-            email: data.user.email || email,
-            full_name: 'Estate Director',
-            role: 'admin',
-            created_at: data.user.created_at || new Date().toISOString(),
-            updated_at: new Date().toISOString(),
-          };
-          setCurrentUser(userProfile);
-
-          // Fetch contact messages from Supabase for authenticated admin
-          const { data: msgs } = await supabase
-            .from('contact_messages')
-            .select('*')
-            .order('created_at', { ascending: false });
-          if (msgs && msgs.length > 0) {
-            setMessages(msgs);
-          }
-
-          return { success: true };
-        }
-      } catch (err: any) {
-        return { success: false, error: err.message || 'Login failed' };
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (error) {
+        return { success: false, error: error.message };
       }
-    }
+      if (data.user) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', data.user.id)
+          .maybeSingle();
 
-    if (isSupabaseConfigured) {
-      return { success: false, error: 'Invalid credentials. Please provide an email and password.' };
-    }
+        const userProfile: Profile = profile || {
+          id: data.user.id,
+          email: data.user.email || email,
+          full_name: 'Estate Director',
+          role: 'admin',
+          created_at: data.user.created_at || new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+        };
+        setCurrentUser(userProfile);
 
-    // Fast-track demo admin login for verification and instant preview testing
-    const demoAdmin: Profile = {
-      id: 'admin-demo-uuid',
-      email: email || 'admin@montrose-equestrian.com',
-      full_name: 'Henri de Montrose',
-      role: 'admin',
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    };
-    setCurrentUser(demoAdmin);
-    return { success: true };
+        // Fetch contact messages from Supabase for authenticated admin
+        const { data: msgs } = await supabase
+          .from('contact_messages')
+          .select('*')
+          .order('created_at', { ascending: false });
+        if (msgs && msgs.length > 0) {
+          setMessages(msgs);
+        }
+
+        return { success: true };
+      }
+      return { success: false, error: 'Login failed' };
+    } catch (err: any) {
+      return { success: false, error: err.message || 'Login failed' };
+    }
   }, []);
 
   const logout = useCallback(async () => {

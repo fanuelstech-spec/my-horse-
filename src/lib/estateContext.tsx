@@ -736,6 +736,10 @@ export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       }
     }
 
+    if (isSupabaseConfigured) {
+      return { success: false, error: 'Invalid credentials. Please provide an email and password.' };
+    }
+
     // Fast-track demo admin login for verification and instant preview testing
     const demoAdmin: Profile = {
       id: 'admin-demo-uuid',

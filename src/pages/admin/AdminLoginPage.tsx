@@ -114,19 +114,21 @@ export const AdminLoginPage: React.FC<AdminLoginPageProps> = ({ onNavigate }) =>
           </form>
 
           {/* Instant Demo Access Button */}
-          <div className="pt-4 border-t border-[#B7B0A4]/25 text-center">
-            <p className="text-[11px] text-[#73716B] mb-3">
-              Previewing the estate administration?
-            </p>
-            <button
-              type="button"
-              onClick={handleDemoLogin}
-              className="w-full py-2.5 bg-[#FAF9F6] border border-[#B7B0A4]/50 text-xs uppercase tracking-wider text-[#20201E] hover:bg-white transition-colors font-medium flex items-center justify-center space-x-2"
-            >
-              <span>Instant Estate Director Demo Access</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
+          {!isConfiguredWithSupabase && (
+            <div className="pt-4 border-t border-[#B7B0A4]/25 text-center">
+              <p className="text-[11px] text-[#73716B] mb-3">
+                Previewing the estate administration?
+              </p>
+              <button
+                type="button"
+                onClick={handleDemoLogin}
+                className="w-full py-2.5 bg-[#FAF9F6] border border-[#B7B0A4]/50 text-xs uppercase tracking-wider text-[#20201E] hover:bg-white transition-colors font-medium flex items-center justify-center space-x-2"
+              >
+                <span>Instant Estate Director Demo Access</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

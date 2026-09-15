@@ -26,7 +26,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero.jpg"
-            alt="Warmblood in the misty morning pasture at Montrose Estate"
+            alt="Warmblood in the misty morning pasture at Sterling Estate"
             className="w-full h-full object-cover object-center opacity-75"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#20201E] via-[#20201E]/40 to-black/20" />
@@ -86,7 +86,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </h2>
             <div className="space-y-4 text-sm sm:text-base text-[#73716B] leading-relaxed font-light">
               <p>
-                At Montrose, we reject commercial haste. True excellence in equine breeding cannot be manufactured in a single season. It requires generational patience, an unwavering dedication to damline integrity, and an intimate understanding of biomechanical soundness.
+                At Sterling, we reject commercial haste. True excellence in equine breeding cannot be manufactured in a single season. It requires generational patience, an unwavering dedication to damline integrity, and an intimate understanding of biomechanical soundness.
               </p>
               <p>
                 Our horses are raised naturally in large herd environments across 180 hectares of fertile Normandy pastureland. From their first days, they develop spatial balance, unshakeable confidence, and profound trust in human stewardship.
@@ -109,7 +109,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div className="aspect-[4/5] overflow-hidden bg-[#FAF9F6] border border-[#B7B0A4]/30 shadow-sm">
               <img
                 src="/images/about.jpg"
-                alt="Montrose training in the classical arena"
+                alt="Sterling training in the classical arena"
                 className="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-700"
               />
             </div>
@@ -119,7 +119,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 "A horse trained with clarity and kindness will always offer more than one asked with force."
               </p>
               <span className="block text-[9px] uppercase tracking-widest text-[#73716B] mt-2">
-                — Henri de Montrose
+                — Henri Sterling
               </span>
             </div>
           </div>
@@ -248,7 +248,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 </h2>
 
                 <p className="text-sm sm:text-base text-[#73716B] leading-relaxed font-light">
-                  Alongside our competitive breeding program, Montrose sustains a 40-hectare rehabilitation haven. Here, vulnerable, injured, or surrendered horses receive comprehensive medical restoration, tailored nutrition, and lifelong sanctuary.
+                  Alongside our competitive breeding program, Sterling sustains a 40-hectare rehabilitation haven. Here, vulnerable, injured, or surrendered horses receive comprehensive medical restoration, tailored nutrition, and lifelong sanctuary.
                 </p>
 
                 {/* Featured Rescue Highlight */}

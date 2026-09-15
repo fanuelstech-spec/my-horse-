@@ -409,11 +409,11 @@ export const AdminMessagesPage: React.FC<AdminMessagesPageProps> = ({ onNavigate
                   <div className="flex flex-wrap items-center gap-2">
                     <a
                       href={`mailto:${selectedMessage.email}?subject=${encodeURIComponent(
-                        `Re: ${selectedMessage.subject} - Montrose Equestrian Estate`
+                        `Re: ${selectedMessage.subject} - Sterling Horse Sales`
                       )}&body=${encodeURIComponent(
-                        `Dear ${selectedMessage.name},\n\nThank you for contacting Montrose Equestrian Estate regarding ${
+                        `Dear ${selectedMessage.name},\n\nThank you for contacting Sterling Horse Sales regarding ${
                           selectedMessage.horse_name || 'your inquiry'
-                        }.\n\n\n\nKind regards,\nMontrose Estate Office\nhttps://montrose-equestrian.com`
+                        }.\n\n\n\nKind regards,\nSterling Estate Office\nhttps://sterlinghorsesales.com`
                       )}`}
                       onClick={() => handleSetStatus(selectedMessage.id, 'replied')}
                       className="inline-flex items-center space-x-2 px-4 py-2.5 bg-[#24362D] text-white text-xs uppercase tracking-wider hover:bg-[#1c2a23] transition-colors font-medium min-h-[40px]"

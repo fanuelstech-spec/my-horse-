@@ -310,7 +310,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           <div className="p-6 bg-white border border-[#B7B0A4]/30 space-y-3">
             <h4 className="font-serif text-lg text-[#20201E]">Private Viewing Protocol</h4>
             <p className="text-xs text-[#73716B] leading-relaxed font-light">
-              To preserve the tranquil atmosphere of our broodmare herds and rehabilitation sanctuary, Montrose operates strictly by confirmed private appointment. We provide chauffeured transfers from Deauville-Normandie Airport (DOL) upon request.
+              To preserve the tranquil atmosphere of our broodmare herds and rehabilitation sanctuary, Sterling operates strictly by confirmed private appointment. We provide chauffeured transfers from Deauville-Normandie Airport (DOL) upon request.
             </p>
           </div>
         </div>

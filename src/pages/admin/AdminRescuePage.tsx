@@ -55,7 +55,7 @@ export const AdminRescuePage: React.FC<AdminRescuePageProps> = ({ initialAction,
       story: '',
       rehabilitation: '',
       current_status: '',
-      location: 'Montrose Sanctuary, Normandy',
+      location: 'Sterling Sanctuary, Normandy',
       featured: false,
       published: true,
       created_at: new Date().toISOString(),
@@ -257,7 +257,7 @@ export const AdminRescuePage: React.FC<AdminRescuePageProps> = ({ initialAction,
                       required
                       value={editingRescue.name}
                       onChange={(e) => setEditingRescue({ ...editingRescue, name: e.target.value })}
-                      placeholder="e.g. Bella de Montrose"
+                      placeholder="e.g. Bella de Sterling"
                       className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
                     />
                   </div>
@@ -300,7 +300,7 @@ export const AdminRescuePage: React.FC<AdminRescuePageProps> = ({ initialAction,
                       type="text"
                       value={editingRescue.location || ''}
                       onChange={(e) => setEditingRescue({ ...editingRescue, location: e.target.value })}
-                      placeholder="e.g. South Pastures, Montrose Sanctuary"
+                      placeholder="e.g. South Pastures, Sterling Sanctuary"
                       className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
                     />
                   </div>

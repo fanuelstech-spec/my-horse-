@@ -36,7 +36,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
           id="header-logo-btn"
         >
           <span className="block font-serif text-2xl sm:text-3xl tracking-[0.18em] text-[#20201E] font-normal uppercase">
-            MONTROSE
+            STERLING
           </span>
           <span className="block font-sans text-[9px] sm:text-[10px] tracking-[0.25em] text-[#73716B] uppercase mt-0.5">
             Haras & Domaine Équestre · Deauville

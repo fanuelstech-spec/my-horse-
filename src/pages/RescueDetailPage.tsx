@@ -84,7 +84,7 @@ export const RescueDetailPage: React.FC<RescueDetailPageProps> = ({ slug, rescue
             {rescue.name}
           </h1>
           <p className="text-xs sm:text-sm text-[#73716B] uppercase tracking-wider">
-            Rescued {rescue.rescue_date} · Current Residence: {rescue.location || 'Montrose Sanctuary'}
+            Rescued {rescue.rescue_date} · Current Residence: {rescue.location || 'Sterling Sanctuary'}
           </p>
         </div>
 
@@ -190,7 +190,7 @@ export const RescueDetailPage: React.FC<RescueDetailPageProps> = ({ slug, rescue
               <p className="text-xs text-[#73716B] leading-relaxed font-light">
                 {isLookingForHome
                   ? `${rescue.name} has completed full veterinary recovery and is seeking an approved companion or light-activity home with experienced equestrians.`
-                  : `${rescue.name} has lifetime sanctuary status at Montrose. They will spend all remaining years in peaceful Normandy herd pastures.`}
+                  : `${rescue.name} has lifetime sanctuary status at Sterling. They will spend all remaining years in peaceful Normandy herd pastures.`}
               </p>
 
               <div className="pt-2">

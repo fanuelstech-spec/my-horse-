@@ -1,5 +1,5 @@
 /**
- * Database & Domain Types for Montrose Equestrian Estate
+ * Database & Domain Types for Sterling Horse Sales
  */
 
 export type HorseSex = 'Stallion' | 'Mare' | 'Gelding' | 'Colt' | 'Filly';

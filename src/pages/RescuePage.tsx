@@ -22,14 +22,14 @@ export const RescuePage: React.FC<RescuePageProps> = ({ onNavigate }) => {
           </span>
         </div>
         <h1 className="font-serif text-4xl sm:text-6xl text-[#20201E] font-normal leading-[1.12]">
-          The Sanctuary at Montrose: Dignity restored with patience and quiet affection.
+          The Sanctuary at Sterling: Dignity restored with patience and quiet affection.
         </h1>
         <div className="text-sm sm:text-base text-[#73716B] leading-relaxed font-light space-y-4">
           <p>
-            While our breeding program pursues high athletic precision, our sanctuary exists to honour the vulnerability inherent in every equine life. Over forty years, Montrose has opened its paddocks to sport horses cast aside through injury, neglect, or commercial abandonment.
+            While our breeding program pursues high athletic precision, our sanctuary exists to honour the vulnerability inherent in every equine life. Over forty years, Sterling has opened its paddocks to sport horses cast aside through injury, neglect, or commercial abandonment.
           </p>
           <p>
-            We operate this work entirely through our own resources—without public charity solicitations or commercial fanfare. For horses capable of thriving in companion or light pleasure partnerships, we search meticulously for permanent, loving homes. For those whose bodies or minds require peace, Montrose remains their forever home.
+            We operate this work entirely through our own resources—without public charity solicitations or commercial fanfare. For horses capable of thriving in companion or light pleasure partnerships, we search meticulously for permanent, loving homes. For those whose bodies or minds require peace, Sterling remains their forever home.
           </p>
         </div>
       </section>
@@ -74,7 +74,7 @@ export const RescuePage: React.FC<RescuePageProps> = ({ onNavigate }) => {
             Restored Lives & Stories
           </h2>
           <p className="text-xs text-[#73716B] mt-1 font-light">
-            Journeys of rehabilitation, resilience, and newfound peace at Montrose.
+            Journeys of rehabilitation, resilience, and newfound peace at Sterling.
           </p>
         </div>
 
@@ -120,7 +120,7 @@ export const RescuePage: React.FC<RescuePageProps> = ({ onNavigate }) => {
 
                   <div className="pt-4 border-t border-[#B7B0A4]/20 flex items-center justify-between">
                     <span className="text-xs font-serif italic text-[#73716B]">
-                      {rescue.location || 'Montrose Sanctuary'}
+                      {rescue.location || 'Sterling Sanctuary'}
                     </span>
                     <span className="inline-flex items-center text-xs uppercase tracking-[0.15em] text-[#20201E] font-medium group-hover:translate-x-0.5 transition-transform">
                       <span>Read Story</span>

@@ -47,7 +47,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
             <div className="flex items-center space-x-2">
               <div className="w-1.5 h-1.5 rounded-full bg-[#A89472]" />
               <span className="font-serif text-lg tracking-wider text-white">
-                MONTROSE
+                STERLING
               </span>
               <span className="text-[10px] uppercase tracking-widest text-[#A89472] border border-[#A89472]/40 px-1.5 py-0.5 rounded">
                 Office

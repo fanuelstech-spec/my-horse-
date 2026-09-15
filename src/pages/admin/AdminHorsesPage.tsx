@@ -269,7 +269,7 @@ export const AdminHorsesPage: React.FC<AdminHorsesPageProps> = ({ initialAction,
                       required
                       value={editingHorse.name}
                       onChange={(e) => setEditingHorse({ ...editingHorse, name: e.target.value })}
-                      placeholder="e.g. Artemis de Montrose"
+                      placeholder="e.g. Artemis de Sterling"
                       className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
                     />
                   </div>

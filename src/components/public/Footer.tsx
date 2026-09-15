@@ -115,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   href={settings.instagram_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Montrose Instagram"
+                  aria-label="Sterling Instagram"
                   className="p-1.5 hover:text-[#FAF9F6] transition-colors"
                 >
                   <Instagram className="w-4 h-4" />
@@ -126,7 +126,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   href={settings.facebook_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Montrose Facebook"
+                  aria-label="Sterling Facebook"
                   className="p-1.5 hover:text-[#FAF9F6] transition-colors"
                 >
                   <Facebook className="w-4 h-4" />
@@ -137,7 +137,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   href={settings.youtube_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Montrose YouTube"
+                  aria-label="Sterling YouTube"
                   className="p-1.5 hover:text-[#FAF9F6] transition-colors"
                 >
                   <Youtube className="w-4 h-4" />

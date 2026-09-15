@@ -2,10 +2,10 @@ import { Horse, Rescue, JournalPost, SiteSettings, ContactMessage } from '../typ
 
 export const INITIAL_SITE_SETTINGS: SiteSettings = {
   id: 'estate_settings',
-  business_name: 'Montrose Equestrian Estate',
+  business_name: 'Sterling Horse Sales',
   tagline: 'Exceptional Horses. Thoughtfully Bred.',
   logo_url: '/images/dressage.jpg',
-  email: 'concierge@montrose-equestrian.com',
+  email: 'concierge@sterlinghorsesales.com',
   phone: '+33 2 31 88 42 10',
   whatsapp: '+33 6 45 20 19 88',
   address: 'Route du Haras 14, 14800 Deauville',
@@ -15,7 +15,7 @@ export const INITIAL_SITE_SETTINGS: SiteSettings = {
   facebook_url: 'https://facebook.com/montrose.equestrian',
   youtube_url: 'https://youtube.com/@montroseeffort',
   about_text:
-    "Founded on the enduring principle of respectful horsemanship and generational lineage, Montrose operates across 180 hectares of protected pasture in the Pays d'Auge. We combine classical French training traditions with modern equine sports medicine and biomechanics to produce Warmbloods capable of competing at the highest international levels, while remaining calm, sound, and noble in temperament.",
+    "Founded on the enduring principle of respectful horsemanship and generational lineage, Sterling operates across 180 hectares of protected pasture in the Pays d'Auge. We combine classical French training traditions with modern equine sports medicine and biomechanics to produce Warmbloods capable of competing at the highest international levels, while remaining calm, sound, and noble in temperament.",
   footer_text: 'Breeding exceptional horses with patience, purpose and respect.',
   updated_at: new Date().toISOString(),
 };
@@ -35,7 +35,7 @@ export const INITIAL_HORSES: Horse[] = [
     discipline: 'Dressage',
     training_level: 'Prix St. Georges / Inter I Preparation',
     sire: 'Vivaldi',
-    dam: 'Zara van Montrose',
+    dam: 'Zara van Sterling',
     grand_sire_paternal: 'Krack C',
     grand_dam_paternal: 'Renate-Utopia',
     grand_sire_maternal: 'Gribaldi',
@@ -195,7 +195,7 @@ export const INITIAL_HORSES: Horse[] = [
   },
   {
     id: 'e2d3f4a1-4444-4444-9999-000000000004',
-    name: 'Montrose Atlas',
+    name: 'Sterling Atlas',
     slug: 'montrose-atlas',
     breed: 'Trakehner',
     registration_number: 'TRAK-2017-8821',
@@ -207,7 +207,7 @@ export const INITIAL_HORSES: Horse[] = [
     discipline: 'All-Round / Hunter / Dressage',
     training_level: 'Advanced Medium',
     sire: 'Millennium',
-    dam: 'Aura de Montrose',
+    dam: 'Aura de Sterling',
     grand_sire_paternal: 'Easy Game',
     grand_dam_paternal: 'Merle',
     grand_sire_maternal: 'Caprimond',
@@ -219,7 +219,7 @@ export const INITIAL_HORSES: Horse[] = [
     short_description:
       'A noble grey gelding possessing classic Trakehner nobility, exceptional ground manners, and light feather-soft contact.',
     description:
-      'Montrose Atlas has been brought along with exemplary patience in our classical system. His movement is floaty, light on the ground, and wonderfully comfortable to sit. He has also been schooled over small natural fences and enjoys trail riding through the Normandy countryside.',
+      'Sterling Atlas has been brought along with exemplary patience in our classical system. His movement is floaty, light on the ground, and wonderfully comfortable to sit. He has also been schooled over small natural fences and enjoys trail riding through the Normandy countryside.',
     personality: 'Patient, curious, and deeply trustworthy. An old soul with great wisdom.',
     training: 'Solid flying changes, established lateral work, quiet jumping style with excellent technique.',
     competition_history: 'Successful in regional dressage and working equitation competitions.',
@@ -234,7 +234,7 @@ export const INITIAL_HORSES: Horse[] = [
         id: 'img-401',
         horse_id: 'e2d3f4a1-4444-4444-9999-000000000004',
         url: '/images/dressage.jpg',
-        caption: 'Montrose Atlas in the courtyard',
+        caption: 'Sterling Atlas in the courtyard',
         display_order: 1,
         is_cover: true,
       },
@@ -252,12 +252,12 @@ export const INITIAL_RESCUES: Rescue[] = [
     short_description:
       'A French Trotter mare surrendered from neglect, rehabilitated over two years into our gentlest therapy and companion mare.',
     story:
-      'Hope arrived at Montrose on an overcast morning in October 2022, severely underweight, dehydrated, and deeply fearful of human contact. She had spent five years in substandard housing without veterinary care or appropriate forage. Through patient, quiet presence and custom nutrition designed by equine gastroenterologists, she slowly shed her fear and rediscovered the joy of companionship.',
+      'Hope arrived at Sterling on an overcast morning in October 2022, severely underweight, dehydrated, and deeply fearful of human contact. She had spent five years in substandard housing without veterinary care or appropriate forage. Through patient, quiet presence and custom nutrition designed by equine gastroenterologists, she slowly shed her fear and rediscovered the joy of companionship.',
     rehabilitation:
       'Months of specialized ulcer treatment, tailored physiotherapy, corrective barefoot trimming, and hundreds of gentle hours of positive reinforcement training.',
     current_status:
       'Hope now lives peacefully in our senior herd, enjoying daily grass turnout, apple treats, and visits from visiting apprentice grooms who learn gentleness from her.',
-    location: 'Montrose Sanctuary Pastures, Normandy',
+    location: 'Sterling Sanctuary Pastures, Normandy',
     featured: true,
     published: true,
     created_at: new Date(Date.now() - 120 * 86400000).toISOString(),
@@ -278,7 +278,7 @@ export const INITIAL_RESCUES: Rescue[] = [
         rescue_id: 'c1b2a3d4-1111-4444-8888-000000000001',
         title: 'Arrival',
         content:
-          'Transported in an emergency trailer, Hope stepped onto Montrose soil with eyes wide with anxiety and a body condition score of 1.5 out of 9.',
+          'Transported in an emergency trailer, Hope stepped onto Sterling soil with eyes wide with anxiety and a body condition score of 1.5 out of 9.',
         date_label: 'October 2022',
         display_order: 1,
       },
@@ -325,7 +325,7 @@ export const INITIAL_RESCUES: Rescue[] = [
       'Controlled stall rest with medical vibration therapy, graduated hand-walking, and targeted strengthening of the stifle ligaments.',
     current_status:
       'Fully rehabilitated and sound for flatwork, long-reining, trail riding, and loving companionship.',
-    location: 'Montrose Rehab Barn, Normandy',
+    location: 'Sterling Rehab Barn, Normandy',
     featured: true,
     published: true,
     created_at: new Date(Date.now() - 90 * 86400000).toISOString(),
@@ -384,7 +384,7 @@ A great horse is never an accident of fortune. It is the culmination of generati
 
 While stallion brochures command the highest fees and the brightest headlines, seasoned breeders understand that more than sixty percent of a foal's character, courage, and constitutional durability descends through the motherline.
 
-At Montrose, we do not breed from mares who merely possess famous paperwork. A candidate for our broodmare band must satisfy three non-negotiable standards:
+At Sterling, we do not breed from mares who merely possess famous paperwork. A candidate for our broodmare band must satisfy three non-negotiable standards:
 
 1. **A Calm, Sovereign Nervous System:** A high-performance horse must possess fire under saddle, yet remain peaceful and rational in the stall.
 2. **Soundness of Bone and Hoof:** We breed for longevity. A horse that cannot stay sound through fifteen years of training represents a flaw in breeding judgment.
@@ -401,11 +401,11 @@ Our horses grow up in large, undulating herds. They navigate slopes, negotiate s
 This is breeding with purpose.`,
     category: 'Breeding',
     featured_image: '/images/hero.jpg',
-    author: 'Henri de Montrose',
+    author: 'Henri Sterling',
     published: true,
     published_at: new Date(Date.now() - 14 * 86400000).toISOString(),
-    seo_title: 'The Philosophy of Generational Breeding | Montrose Equestrian',
-    seo_description: 'Discover how Montrose breeds world-class Warmbloods with focus on temperament, biomechanics, and European heritage.',
+    seo_title: 'The Philosophy of Generational Breeding | Sterling Horse Sales',
+    seo_description: 'Discover how Sterling breeds world-class Warmbloods with focus on temperament, biomechanics, and European heritage.',
     featured: true,
     created_at: new Date(Date.now() - 14 * 86400000).toISOString(),
     updated_at: new Date().toISOString(),
@@ -417,7 +417,7 @@ This is breeding with purpose.`,
     excerpt: 'Why the first twelve months under saddle determine the athletic longevity of the modern dressage partner.',
     content: `There is no shortcut to correct collection. The physical structure of a 4-year-old horse is still ossifying, with the cervical vertebrae and sacroiliac joint among the last skeletal structures to fully mature.
 
-At Montrose, our youngsters spend their fourth year primarily learning forward desire, straightness, and light acceptance of the bit through hacking, cavaletti work, and light lunging in long lines.
+At Sterling, our youngsters spend their fourth year primarily learning forward desire, straightness, and light acceptance of the bit through hacking, cavaletti work, and light lunging in long lines.
 
 ### The German Scale of Training: Re-examined
 
@@ -431,7 +431,7 @@ When these three foundation stones are built without force, the horse offers col
     author: 'Claire Laurent (Head Trainer)',
     published: true,
     published_at: new Date(Date.now() - 28 * 86400000).toISOString(),
-    seo_title: 'Developing the Young Horse | Montrose Equestrian Journal',
+    seo_title: 'Developing the Young Horse | Sterling Horse Sales Journal',
     seo_description: 'A masterclass on training young dressage horses with patience, biomechanics, and longevity.',
     featured: false,
     created_at: new Date(Date.now() - 28 * 86400000).toISOString(),
@@ -439,10 +439,10 @@ When these three foundation stones are built without force, the horse offers col
   },
   {
     id: 'a1b2c3d4-3333-4444-7777-000000000003',
-    title: 'Sanctuary and Sport: The Two Pillars of Montrose',
+    title: 'Sanctuary and Sport: The Two Pillars of Sterling',
     slug: 'sanctuary-and-sport-two-pillars',
     excerpt: 'How our rehabilitation program for vulnerable horses enriches the emotional culture of our entire competition barn.',
-    content: `Many in the equestrian industry see competitive sport breeding and equine rescue as polar opposites. At Montrose, we believe they are essential mirrors of one another.
+    content: `Many in the equestrian industry see competitive sport breeding and equine rescue as polar opposites. At Sterling, we believe they are essential mirrors of one another.
 
 The same acute sensitivity required to pilot an international Grand Prix test is born from understanding the fragile psychology of a rescued horse.
 
@@ -451,10 +451,10 @@ When our young riders and grooms spend their mornings tending to rescue horses l
 Every sale from our breeding barn directly funds our 40-hectare sanctuary wing, ensuring that our commitment to equine welfare is woven into every stride we take.`,
     category: 'Rescue',
     featured_image: '/images/hero.jpg',
-    author: 'Henri de Montrose',
+    author: 'Henri Sterling',
     published: true,
     published_at: new Date(Date.now() - 45 * 86400000).toISOString(),
-    seo_title: 'Sanctuary & Sport | Montrose Equestrian Journal',
+    seo_title: 'Sanctuary & Sport | Sterling Horse Sales Journal',
     seo_description: 'Why equine rescue and high-level breeding belong side-by-side in modern horsemanship.',
     featured: false,
     created_at: new Date(Date.now() - 45 * 86400000).toISOString(),
@@ -470,7 +470,7 @@ export const INITIAL_MESSAGES: ContactMessage[] = [
     phone: '+43 664 123 4567',
     subject: 'Private Viewing Request for Artemis',
     message:
-      'Dear Montrose Estate Concierge, I have been following the development of your Vivaldi lines with great admiration. I would like to arrange a private viewing of Artemis next month, including a veterinary inspection with our private team. We look forward to hearing from you.',
+      'Dear Sterling Estate Concierge, I have been following the development of your Vivaldi lines with great admiration. I would like to arrange a private viewing of Artemis next month, including a veterinary inspection with our private team. We look forward to hearing from you.',
     horse_name: 'Artemis',
     horse_id: 'e2d3f4a1-1111-4444-9999-000000000001',
     status: 'new',

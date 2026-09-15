@@ -44,7 +44,7 @@ export const PedigreeTree: React.FC<PedigreeTreeProps> = ({
           <span className="font-serif text-xl sm:text-2xl text-[#20201E] font-medium mt-1">
             {horseName}
           </span>
-          <span className="text-xs text-[#A89472] mt-0.5">Montrose Breeding</span>
+          <span className="text-xs text-[#A89472] mt-0.5">Sterling Breeding</span>
         </div>
 
         {/* Generation 2: Sire & Dam */}

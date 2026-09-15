@@ -85,10 +85,10 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
               <span>Estate Office</span>
             </div>
             <h2 className="font-serif text-xl sm:text-2xl tracking-wider text-white mt-1">
-              MONTROSE
+              STERLING
             </h2>
             <p className="text-[11px] text-[#73716B] mt-0.5 truncate max-w-[190px]">
-              {currentUser?.email || 'admin@montrose-equestrian.com'}
+              {currentUser?.email || 'admin@sterlinghorsesales.com'}
             </p>
           </div>
 

@@ -78,7 +78,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
   const handleExportBackup = () => {
     const backupData = {
       exportedAt: new Date().toISOString(),
-      estate: 'Montrose Equestrian Estate',
+      estate: 'Sterling Horse Sales',
       horses,
       rescues,
       journal,

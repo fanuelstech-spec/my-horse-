@@ -8,7 +8,7 @@ interface AdminLoginPageProps {
 
 export const AdminLoginPage: React.FC<AdminLoginPageProps> = ({ onNavigate }) => {
   const { loginAsAdmin, isConfiguredWithSupabase } = useEstate();
-  const [email, setEmail] = useState('admin@montrose-equestrian.com');
+  const [email, setEmail] = useState('admin@sterlinghorsesales.com');
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -30,7 +30,7 @@ export const AdminLoginPage: React.FC<AdminLoginPageProps> = ({ onNavigate }) =>
 
   const handleDemoLogin = async () => {
     setIsSubmitting(true);
-    await loginAsAdmin('director@montrose-equestrian.com');
+    await loginAsAdmin('director@sterlinghorsesales.com');
     setIsSubmitting(false);
     onNavigate('/admin');
   };
@@ -59,7 +59,7 @@ export const AdminLoginPage: React.FC<AdminLoginPageProps> = ({ onNavigate }) =>
             Estate Office Sign In
           </h1>
           <p className="text-xs text-[#73716B]">
-            Authorized personnel management for Montrose Equestrian Estate
+            Authorized personnel management for Sterling Horse Sales
           </p>
         </div>
 

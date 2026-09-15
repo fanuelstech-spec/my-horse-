@@ -138,7 +138,7 @@ export const JournalDetailPage: React.FC<JournalDetailPageProps> = ({ slug, post
           </span>
           <h3 className="font-serif text-xl text-[#20201E]">{post.author}</h3>
           <p className="text-xs sm:text-sm text-[#73716B] leading-relaxed font-light">
-            Contributing to the Montrose Estate Journal on equine genetics, classical dressage biomechanics, and sanctuary rehabilitation protocols.
+            Contributing to the Sterling Estate Journal on equine genetics, classical dressage biomechanics, and sanctuary rehabilitation protocols.
           </p>
         </div>
       </section>

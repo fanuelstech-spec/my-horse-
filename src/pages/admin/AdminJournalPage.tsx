@@ -55,7 +55,7 @@ export const AdminJournalPage: React.FC<AdminJournalPageProps> = ({ initialActio
       content: '',
       category: 'Breeding',
       featured_image: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1600&q=85',
-      author: 'Henri de Montrose',
+      author: 'Henri Sterling',
       published: true,
       published_at: new Date().toISOString(),
       seo_title: '',
@@ -274,7 +274,7 @@ export const AdminJournalPage: React.FC<AdminJournalPageProps> = ({ initialActio
                       type="text"
                       value={editingPost.author}
                       onChange={(e) => setEditingPost({ ...editingPost, author: e.target.value })}
-                      placeholder="e.g. Henri de Montrose"
+                      placeholder="e.g. Henri Sterling"
                       className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
                     />
                   </div>

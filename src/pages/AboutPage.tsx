@@ -20,7 +20,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
     },
     {
       title: 'Lifelong Stewardship',
-      desc: 'Every horse bearing the Montrose brand retains a perpetual open door to our sanctuary if life circumstances change.',
+      desc: 'Every horse bearing the Sterling brand retains a perpetual open door to our sanctuary if life circumstances change.',
     },
     {
       title: 'Sovereign Temperament',
@@ -30,7 +30,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
 
   const team = [
     {
-      name: 'Henri de Montrose',
+      name: 'Henri Sterling',
       role: 'Master Breeder & Estate Founder',
       bio: 'Fourth-generation horseman raised in the Calvados equine tradition, dedicating forty years to classical Warmblood genetics and ethical stewardship.',
       image: '/images/staff.jpg',
@@ -60,7 +60,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           Four decades devoted to the harmony of temperament, beauty, and noble sport.
         </h1>
         <p className="font-sans text-base sm:text-lg text-[#73716B] leading-relaxed font-light">
-          Located in the heart of Normandy’s Pays d'Auge, Montrose represents a rare continuity between old-world French equestrian craftsmanship and the modern science of equine welfare.
+          Located in the heart of Normandy’s Pays d'Auge, Sterling represents a rare continuity between old-world French equestrian craftsmanship and the modern science of equine welfare.
         </p>
       </section>
 
@@ -78,7 +78,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               {settings.about_text}
             </p>
             <p>
-              When Henri de Montrose acquired the historic domaine in 1984, the vision was singular: to resist the prevailing industrialization of sport horse production and create an unhurried sanctuary where horses could mature according to their natural cadence.
+              When Henri Sterling acquired the historic domaine in 1984, the vision was singular: to resist the prevailing industrialization of sport horse production and create an unhurried sanctuary where horses could mature according to their natural cadence.
             </p>
             <p>
               Today, the estate encompasses 180 hectares of chemical-free, mineral-rich pastures bordered by centuries-old oak hedgerows that provide natural shelter and biodiversity for our mares and growing youngsters.
@@ -102,7 +102,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             Philosophy & Welfare
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl text-[#20201E] font-normal">
-            The Montrose Standard: Welfare before commerce.
+            The Sterling Standard: Welfare before commerce.
           </h2>
           <p className="text-sm sm:text-base text-[#73716B] leading-relaxed font-light">
             We do not measure our success by the quantity of foals registered each spring, but by the physical and psychological condition of our horses in their teens and twenties.
@@ -134,7 +134,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             Designed for equine health and classical excellence.
           </h2>
           <p className="text-sm text-[#73716B] font-light">
-            Every building, paddock, and arena at Montrose is engineered around equine respiratory health, orthopedic safety, and natural social interaction.
+            Every building, paddock, and arena at Sterling is engineered around equine respiratory health, orthopedic safety, and natural social interaction.
           </p>
         </div>
 

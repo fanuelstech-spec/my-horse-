@@ -147,7 +147,7 @@ export const HorseDetailPage: React.FC<HorseDetailPageProps> = ({ slug, horse: p
           <div className="lg:col-span-5 space-y-8">
             <div>
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#A89472] font-semibold block">
-                Montrose Studbook Record
+                Sterling Studbook Record
               </span>
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#20201E] font-normal tracking-tight mt-1">
                 {horse.name}
@@ -267,7 +267,7 @@ export const HorseDetailPage: React.FC<HorseDetailPageProps> = ({ slug, horse: p
             <div className="bg-white border border-[#B7B0A4]/35 p-6 space-y-4">
               <div className="flex items-center space-x-2 text-[#24362D]">
                 <HeartHandshake className="w-4 h-4 text-[#A89472]" />
-                <h4 className="font-serif text-lg text-[#20201E]">Montrose Guarantee</h4>
+                <h4 className="font-serif text-lg text-[#20201E]">Sterling Guarantee</h4>
               </div>
               <p className="text-xs text-[#73716B] leading-relaxed font-light">
                 Every sale includes trial schooling at our Normandy facility, complete history documentation, and our open return sanctuary policy.

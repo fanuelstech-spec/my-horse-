@@ -1,4 +1,4 @@
-# Montrose Equestrian Estate (Haras Privé & Sanctuaire d'Excellence)
+# Sterling Horse Sales (Haras Privé & Sanctuaire d'Excellence)
 
 A luxury equestrian estate web application for a premier European private horse breeder and rehabilitation sanctuary located in Normandy, France.
 

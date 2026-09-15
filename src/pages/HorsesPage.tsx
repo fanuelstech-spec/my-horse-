@@ -71,7 +71,7 @@ export const HorsesPage: React.FC<HorsesPageProps> = ({ onNavigate }) => {
           Available Horses
         </h1>
         <p className="font-sans text-sm sm:text-base text-[#73716B] leading-relaxed font-light">
-          Each sport horse offered by Montrose has been bred with intention, nurtured across open pastures, and trained under classical principles. We welcome private viewings and veterinary vetting by appointment.
+          Each sport horse offered by Sterling has been bred with intention, nurtured across open pastures, and trained under classical principles. We welcome private viewings and veterinary vetting by appointment.
         </p>
       </section>
 

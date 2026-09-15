@@ -287,6 +287,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <span>{settings.phone}</span>
                 </div>
               </div>
+              {settings.whatsapp && (
+                <div className="flex items-start space-x-3">
+                  <span className="text-[#A89472] text-[10px] uppercase font-bold tracking-wider shrink-0 w-4 inline-block text-center mt-1">WA</span>
+                  <div>
+                    <span className="block font-medium text-[#20201E]">WhatsApp</span>
+                    <span>{settings.whatsapp}</span>
+                  </div>
+                </div>
+              )}
 
               <div className="flex items-start space-x-3">
                 <Mail className="w-4 h-4 text-[#A89472] shrink-0 mt-0.5" />

@@ -93,10 +93,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <MapPin className="w-4 h-4 text-[#A89472] shrink-0 mt-0.5" />
                 <span>{settings.address}, {settings.country}</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="w-4 h-4 text-[#A89472] shrink-0" />
-                <span>{settings.phone}</span>
-              </div>
+              {settings.phone && (
+                <div className="flex items-center space-x-3">
+                  <Phone className="w-4 h-4 text-[#A89472] shrink-0" />
+                  <span>{settings.phone}</span>
+                </div>
+              )}
+              {settings.whatsapp && (
+                <div className="flex items-center space-x-3">
+                  {/* Using a message icon as a generic alternative since lucide doesn't have a direct whatsapp icon by default, but Phone/MessageSquare can work */}
+                  <span className="text-[#A89472] text-[10px] uppercase font-bold tracking-wider shrink-0 w-4 inline-block text-center mt-px">WA</span>
+                  <span>{settings.whatsapp}</span>
+                </div>
+              )}
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-[#A89472] shrink-0" />
                 <span>{settings.email}</span>

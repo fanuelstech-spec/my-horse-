@@ -25,7 +25,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         {/* Background Photograph */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=2400&q=85"
+            src="/images/hero.jpg"
             alt="Warmblood in the misty morning pasture at Montrose Estate"
             className="w-full h-full object-cover object-center opacity-75"
           />
@@ -108,7 +108,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="lg:col-span-6 relative">
             <div className="aspect-[4/5] overflow-hidden bg-[#FAF9F6] border border-[#B7B0A4]/30 shadow-sm">
               <img
-                src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80"
+                src="/images/about.jpg"
                 alt="Montrose training in the classical arena"
                 className="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-700"
               />
@@ -148,7 +148,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             const coverImage =
               horse.images?.find((img) => img.is_cover)?.url ||
               horse.images?.[0]?.url ||
-              'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1200&q=80';
+              '/images/dressage.jpg';
 
             return (
               <article
@@ -226,7 +226,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <img
                     src={
                       featuredRescue.images?.[0]?.url ||
-                      'https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=1200&q=80'
+                      '/images/rescue.jpg'
                     }
                     alt={featuredRescue.name}
                     className="w-full h-full object-cover"

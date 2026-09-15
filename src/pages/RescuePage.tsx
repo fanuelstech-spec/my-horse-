@@ -82,7 +82,7 @@ export const RescuePage: React.FC<RescuePageProps> = ({ onNavigate }) => {
           {publishedRescues.map((rescue) => {
             const coverImage =
               rescue.images?.[0]?.url ||
-              'https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=1200&q=80';
+              '/images/rescue.jpg';
 
             return (
               <article

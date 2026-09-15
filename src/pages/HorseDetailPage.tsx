@@ -53,7 +53,7 @@ export const HorseDetailPage: React.FC<HorseDetailPageProps> = ({ slug, horse: p
   const coverImage =
     images.find((img) => img.is_cover)?.url ||
     images[0]?.url ||
-    'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1800&q=85';
+    '/images/dressage.jpg';
 
   const openLightboxAt = (index: number) => {
     setLightboxIndex(index);

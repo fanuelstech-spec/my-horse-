@@ -33,19 +33,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
       name: 'Henri de Montrose',
       role: 'Master Breeder & Estate Founder',
       bio: 'Fourth-generation horseman raised in the Calvados equine tradition, dedicating forty years to classical Warmblood genetics and ethical stewardship.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+      image: '/images/staff.jpg',
     },
     {
       name: 'Claire Laurent',
       role: 'Director of Classical Training',
       bio: 'Former national dressage competitor educated at Saumur, emphasizing balance, contact without tension, and customized progression.',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+      image: '/images/staff.jpg',
     },
     {
       name: 'Dr. Édouard Valois',
       role: 'Resident Equine Veterinary Surgeon',
       bio: 'Specialist in equine sports physiology and preventative orthopedics, supervising daily herd health, radiographs, and our rehab center.',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+      image: '/images/staff.jpg',
     },
   ];
 
@@ -88,7 +88,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
 
         <div className="lg:col-span-6 aspect-[4/3] overflow-hidden bg-white border border-[#B7B0A4]/35 shadow-sm">
           <img
-            src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1200&q=80"
+            src="/images/hero.jpg"
             alt="Estate pasture in Normandy"
             className="w-full h-full object-cover"
           />
@@ -142,7 +142,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="space-y-4">
             <div className="aspect-[4/3] overflow-hidden bg-[#FAF9F6] border border-[#B7B0A4]/30">
               <img
-                src="https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?auto=format&fit=crop&w=800&q=80"
+                src="/images/about.jpg"
                 alt="Indoor arena"
                 className="w-full h-full object-cover"
               />
@@ -156,7 +156,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="space-y-4">
             <div className="aspect-[4/3] overflow-hidden bg-[#FAF9F6] border border-[#B7B0A4]/30">
               <img
-                src="https://images.unsplash.com/photo-1566251037378-5e04e3bec343?auto=format&fit=crop&w=800&q=80"
+                src="/images/journal.jpg"
                 alt="Estate Paddocks"
                 className="w-full h-full object-cover"
               />
@@ -170,7 +170,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="space-y-4">
             <div className="aspect-[4/3] overflow-hidden bg-[#FAF9F6] border border-[#B7B0A4]/30">
               <img
-                src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=80"
+                src="/images/dressage.jpg"
                 alt="Veterinary and rehabilitation wing"
                 className="w-full h-full object-cover"
               />

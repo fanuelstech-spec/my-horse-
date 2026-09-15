@@ -192,7 +192,7 @@ export const HorsesPage: React.FC<HorsesPageProps> = ({ onNavigate }) => {
             const coverImage =
               horse.images?.find((img) => img.is_cover)?.url ||
               horse.images?.[0]?.url ||
-              'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1200&q=80';
+              '/images/dressage.jpg';
 
             return (
               <article

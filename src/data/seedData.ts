@@ -4,7 +4,7 @@ export const INITIAL_SITE_SETTINGS: SiteSettings = {
   id: 'estate_settings',
   business_name: 'Montrose Equestrian Estate',
   tagline: 'Exceptional Horses. Thoughtfully Bred.',
-  logo_url: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=400&q=80',
+  logo_url: '/images/dressage.jpg',
   email: 'concierge@montrose-equestrian.com',
   phone: '+33 2 31 88 42 10',
   whatsapp: '+33 6 45 20 19 88',
@@ -66,7 +66,7 @@ export const INITIAL_HORSES: Horse[] = [
       {
         id: 'img-101',
         horse_id: 'e2d3f4a1-1111-4444-9999-000000000001',
-        url: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1600&q=85',
+        url: '/images/dressage.jpg',
         caption: 'Artemis at liberty in the morning pastures',
         display_order: 1,
         is_cover: true,
@@ -74,7 +74,7 @@ export const INITIAL_HORSES: Horse[] = [
       {
         id: 'img-102',
         horse_id: 'e2d3f4a1-1111-4444-9999-000000000001',
-        url: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=85',
+        url: '/images/dressage.jpg',
         caption: 'Uphill cadence and collection under saddle',
         display_order: 2,
         is_cover: false,
@@ -82,7 +82,7 @@ export const INITIAL_HORSES: Horse[] = [
       {
         id: 'img-103',
         horse_id: 'e2d3f4a1-1111-4444-9999-000000000001',
-        url: 'https://images.unsplash.com/photo-1598974357801-cbca100e65d3?auto=format&fit=crop&w=1600&q=85',
+        url: '/images/dressage.jpg',
         caption: 'Noble head and throatlatch detail',
         display_order: 3,
         is_cover: false,
@@ -131,7 +131,7 @@ export const INITIAL_HORSES: Horse[] = [
       {
         id: 'img-201',
         horse_id: 'e2d3f4a1-2222-4444-9999-000000000002',
-        url: 'https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?auto=format&fit=crop&w=1600&q=85',
+        url: '/images/dressage.jpg',
         caption: 'Valentino during morning schooling in the indoor arena',
         display_order: 1,
         is_cover: true,
@@ -139,7 +139,7 @@ export const INITIAL_HORSES: Horse[] = [
       {
         id: 'img-202',
         horse_id: 'e2d3f4a1-2222-4444-9999-000000000002',
-        url: 'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?auto=format&fit=crop&w=1600&q=85',
+        url: '/images/dressage.jpg',
         caption: 'Extended trot showing active hindquarter propulsion',
         display_order: 2,
         is_cover: false,
@@ -186,7 +186,7 @@ export const INITIAL_HORSES: Horse[] = [
       {
         id: 'img-301',
         horse_id: 'e2d3f4a1-3333-4444-9999-000000000003',
-        url: 'https://images.unsplash.com/photo-1566251037378-5e04e3bec343?auto=format&fit=crop&w=1600&q=85',
+        url: '/images/dressage.jpg',
         caption: 'Eleanor in the tranquil estate paddocks',
         display_order: 1,
         is_cover: true,
@@ -233,7 +233,7 @@ export const INITIAL_HORSES: Horse[] = [
       {
         id: 'img-401',
         horse_id: 'e2d3f4a1-4444-4444-9999-000000000004',
-        url: 'https://images.unsplash.com/photo-1509205477838-a534e43a849f?auto=format&fit=crop&w=1600&q=85',
+        url: '/images/dressage.jpg',
         caption: 'Montrose Atlas in the courtyard',
         display_order: 1,
         is_cover: true,
@@ -266,7 +266,7 @@ export const INITIAL_RESCUES: Rescue[] = [
       {
         id: 'res-img-1',
         rescue_id: 'c1b2a3d4-1111-4444-8888-000000000001',
-        url: 'https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=1600&q=85',
+        url: '/images/dressage.jpg',
         caption: 'Hope grazing peacefully under the Normandy apple orchards',
         display_order: 1,
         is_cover: true,
@@ -334,7 +334,7 @@ export const INITIAL_RESCUES: Rescue[] = [
       {
         id: 'res-img-2',
         rescue_id: 'c1b2a3d4-2222-4444-8888-000000000002',
-        url: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=85',
+        url: '/images/dressage.jpg',
         caption: 'Rowan enjoying liberty work in the outdoor arena',
         display_order: 1,
         is_cover: true,
@@ -400,7 +400,7 @@ Our horses grow up in large, undulating herds. They navigate slopes, negotiate s
 
 This is breeding with purpose.`,
     category: 'Breeding',
-    featured_image: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1600&q=85',
+    featured_image: '/images/hero.jpg',
     author: 'Henri de Montrose',
     published: true,
     published_at: new Date(Date.now() - 14 * 86400000).toISOString(),
@@ -427,7 +427,7 @@ At Montrose, our youngsters spend their fourth year primarily learning forward d
 
 When these three foundation stones are built without force, the horse offers collection as a natural consequence of strength, rather than as a posture of submission.`,
     category: 'Training',
-    featured_image: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=85',
+    featured_image: '/images/hero.jpg',
     author: 'Claire Laurent (Head Trainer)',
     published: true,
     published_at: new Date(Date.now() - 28 * 86400000).toISOString(),
@@ -450,7 +450,7 @@ When our young riders and grooms spend their mornings tending to rescue horses l
 
 Every sale from our breeding barn directly funds our 40-hectare sanctuary wing, ensuring that our commitment to equine welfare is woven into every stride we take.`,
     category: 'Rescue',
-    featured_image: 'https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=1600&q=85',
+    featured_image: '/images/hero.jpg',
     author: 'Henri de Montrose',
     published: true,
     published_at: new Date(Date.now() - 45 * 86400000).toISOString(),

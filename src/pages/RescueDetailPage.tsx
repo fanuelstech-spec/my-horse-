@@ -49,7 +49,7 @@ export const RescueDetailPage: React.FC<RescueDetailPageProps> = ({ slug, rescue
   const images = rescue.images && rescue.images.length > 0 ? rescue.images : [];
   const coverImage =
     images[0]?.url ||
-    'https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=1800&q=80';
+    '/images/rescue.jpg';
 
   const openLightboxAt = (idx: number) => {
     setLightboxIndex(idx);

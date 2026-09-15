@@ -154,7 +154,7 @@ export const AdminRescuePage: React.FC<AdminRescuePageProps> = ({ initialAction,
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.setAttribute('href', url);
-    link.setAttribute('download', `montrose-rescues-${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute('download', `sterling-rescues-${new Date().toISOString().split('T')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

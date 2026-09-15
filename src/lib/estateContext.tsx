@@ -70,12 +70,12 @@ interface EstateContextType {
 
 const EstateContext = createContext<EstateContextType | undefined>(undefined);
 
-const STORAGE_KEY_HORSES = 'montrose_horses_v1';
-const STORAGE_KEY_RESCUES = 'montrose_rescues_v1';
-const STORAGE_KEY_JOURNAL = 'montrose_journal_v1';
-const STORAGE_KEY_MESSAGES = 'montrose_messages_v1';
-const STORAGE_KEY_SETTINGS = 'montrose_settings_v1';
-const STORAGE_KEY_AUTH = 'montrose_auth_v1';
+const STORAGE_KEY_HORSES = 'sterling_horses_v1';
+const STORAGE_KEY_RESCUES = 'sterling_rescues_v1';
+const STORAGE_KEY_JOURNAL = 'sterling_journal_v1';
+const STORAGE_KEY_MESSAGES = 'sterling_messages_v1';
+const STORAGE_KEY_SETTINGS = 'sterling_settings_v1';
+const STORAGE_KEY_AUTH = 'sterling_auth_v1';
 
 export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [horses, setHorses] = useState<Horse[]>(() => {
@@ -250,7 +250,7 @@ export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
           } else {
             setCurrentUser({
               id: authData.session.user.id,
-              email: authData.session.user.email || 'admin@montrose.com',
+              email: authData.session.user.email || 'admin@sterling.com',
               full_name: 'Estate Director',
               role: 'admin',
               created_at: new Date().toISOString(),

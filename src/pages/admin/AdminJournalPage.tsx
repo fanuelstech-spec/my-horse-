@@ -128,7 +128,7 @@ export const AdminJournalPage: React.FC<AdminJournalPageProps> = ({ initialActio
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.setAttribute('href', url);
-    link.setAttribute('download', `montrose-journal-articles-${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute('download', `sterling-journal-articles-${new Date().toISOString().split('T')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

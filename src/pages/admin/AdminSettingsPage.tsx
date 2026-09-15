@@ -162,8 +162,8 @@ export const AdminSettingsPage: React.FC = () => {
                 </label>
                 <input
                   type="text"
-                  value={form.estate_name || ''}
-                  onChange={(e) => handleChange('estate_name', e.target.value)}
+                  value={form.business_name || ''}
+                  onChange={(e) => handleChange('business_name', e.target.value)}
                   className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
                 />
               </div>
@@ -174,8 +174,8 @@ export const AdminSettingsPage: React.FC = () => {
                 </label>
                 <input
                   type="text"
-                  value={form.estate_subtitle || ''}
-                  onChange={(e) => handleChange('estate_subtitle', e.target.value)}
+                  value={form.tagline || ''}
+                  onChange={(e) => handleChange('tagline', e.target.value)}
                   className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
                 />
               </div>
@@ -187,8 +187,8 @@ export const AdminSettingsPage: React.FC = () => {
               </label>
               <textarea
                 rows={3}
-                value={form.philosophy || ''}
-                onChange={(e) => handleChange('philosophy', e.target.value)}
+                value={form.footer_text || ''}
+                onChange={(e) => handleChange('footer_text', e.target.value)}
                 className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D]"
               />
             </div>
@@ -199,7 +199,7 @@ export const AdminSettingsPage: React.FC = () => {
         {activeTab === 'about' && (
           <div className="bg-white border border-[#B7B0A4]/35 p-5 sm:p-8 space-y-6 shadow-xs animate-in fade-in duration-150">
             <h3 className="text-xs uppercase tracking-[0.2em] text-[#A89472] font-semibold border-b border-[#B7B0A4]/20 pb-2">
-              Estate History, Heritage & Facilities Overview
+              Estate History & Heritage
             </h3>
 
             <div className="space-y-4">
@@ -209,18 +209,6 @@ export const AdminSettingsPage: React.FC = () => {
                 onChange={(val) => handleChange('about_text', val)}
                 rows={12}
               />
-
-              <div className="space-y-1">
-                <label className="block text-[10px] uppercase tracking-wider text-[#73716B] font-medium">
-                  Facilities & Grounds Overview
-                </label>
-                <textarea
-                  rows={4}
-                  value={form.facilities || ''}
-                  onChange={(e) => handleChange('facilities', e.target.value)}
-                  className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D]"
-                />
-              </div>
             </div>
           </div>
         )}
@@ -239,20 +227,32 @@ export const AdminSettingsPage: React.FC = () => {
                 </label>
                 <input
                   type="email"
-                  value={form.contact_email || ''}
-                  onChange={(e) => handleChange('contact_email', e.target.value)}
+                  value={form.email || ''}
+                  onChange={(e) => handleChange('email', e.target.value)}
                   className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
                 />
               </div>
 
               <div className="space-y-1">
                 <label className="block text-[10px] uppercase tracking-wider text-[#73716B] font-medium">
-                  Direct Telephone / WhatsApp
+                  Direct Telephone
                 </label>
                 <input
                   type="text"
-                  value={form.contact_phone || ''}
-                  onChange={(e) => handleChange('contact_phone', e.target.value)}
+                  value={form.phone || ''}
+                  onChange={(e) => handleChange('phone', e.target.value)}
+                  className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
+                />
+              </div>
+              
+              <div className="space-y-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#73716B] font-medium">
+                  WhatsApp
+                </label>
+                <input
+                  type="text"
+                  value={form.whatsapp || ''}
+                  onChange={(e) => handleChange('whatsapp', e.target.value)}
                   className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
                 />
               </div>
@@ -264,10 +264,50 @@ export const AdminSettingsPage: React.FC = () => {
               </label>
               <textarea
                 rows={2}
-                value={form.location || ''}
-                onChange={(e) => handleChange('location', e.target.value)}
+                value={form.address || ''}
+                onChange={(e) => handleChange('address', e.target.value)}
                 className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D]"
               />
+            </div>
+            
+            <h3 className="text-xs uppercase tracking-[0.2em] text-[#A89472] font-semibold border-b border-[#B7B0A4]/20 pb-2 mt-6">
+              Social Media Links
+            </h3>
+            
+            <div className="grid grid-cols-1 gap-5">
+              <div className="space-y-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#73716B] font-medium">
+                  Instagram URL
+                </label>
+                <input
+                  type="text"
+                  value={form.instagram_url || ''}
+                  onChange={(e) => handleChange('instagram_url', e.target.value)}
+                  className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#73716B] font-medium">
+                  Facebook URL
+                </label>
+                <input
+                  type="text"
+                  value={form.facebook_url || ''}
+                  onChange={(e) => handleChange('facebook_url', e.target.value)}
+                  className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#73716B] font-medium">
+                  YouTube URL
+                </label>
+                <input
+                  type="text"
+                  value={form.youtube_url || ''}
+                  onChange={(e) => handleChange('youtube_url', e.target.value)}
+                  className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
+                />
+              </div>
             </div>
           </div>
         )}
@@ -286,8 +326,8 @@ export const AdminSettingsPage: React.FC = () => {
                 </label>
                 <textarea
                   rows={4}
-                  value={form.visiting_protocol || ''}
-                  onChange={(e) => handleChange('visiting_protocol', e.target.value)}
+                  value={form.visiting_hours || ''}
+                  onChange={(e) => handleChange('visiting_hours', e.target.value)}
                   placeholder="e.g. By confirmed private appointment only. Strict bio-security protocols..."
                   className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D]"
                 />

@@ -11,9 +11,9 @@ export const INITIAL_SITE_SETTINGS: SiteSettings = {
   address: 'Route du Haras 14, 14800 Deauville',
   country: 'France',
   visiting_hours: 'Monday – Saturday: 09:00 to 18:00 (By Private Appointment)',
-  instagram_url: 'https://instagram.com/montrose.equestrian',
-  facebook_url: 'https://facebook.com/montrose.equestrian',
-  youtube_url: 'https://youtube.com/@montroseeffort',
+  instagram_url: 'https://instagram.com/sterlinghorsesales',
+  facebook_url: 'https://facebook.com/sterlinghorsesales',
+  youtube_url: 'https://youtube.com/@sterlinghorsesales',
   about_text:
     "Founded on the enduring principle of respectful horsemanship and generational lineage, Sterling operates across 180 hectares of protected pasture in the Pays d'Auge. We combine classical French training traditions with modern equine sports medicine and biomechanics to produce Warmbloods capable of competing at the highest international levels, while remaining calm, sound, and noble in temperament.",
   footer_text: 'Breeding exceptional horses with patience, purpose and respect.',
@@ -196,7 +196,7 @@ export const INITIAL_HORSES: Horse[] = [
   {
     id: 'e2d3f4a1-4444-4444-9999-000000000004',
     name: 'Sterling Atlas',
-    slug: 'montrose-atlas',
+    slug: 'sterling-atlas',
     breed: 'Trakehner',
     registration_number: 'TRAK-2017-8821',
     sex: 'Gelding',

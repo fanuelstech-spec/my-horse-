@@ -157,5 +157,9 @@ export interface SiteSettings {
   youtube_url?: string | null;
   about_text: string;
   footer_text: string;
+  about_image_1?: string | null;
+  about_image_2?: string | null;
+  about_image_3?: string | null;
+  about_image_4?: string | null;
   updated_at?: string;
 }

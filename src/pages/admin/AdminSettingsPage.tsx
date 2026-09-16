@@ -210,6 +210,61 @@ export const AdminSettingsPage: React.FC = () => {
                 rows={12}
               />
             </div>
+            
+            <h3 className="text-xs uppercase tracking-[0.2em] text-[#A89472] font-semibold border-b border-[#B7B0A4]/20 pb-2 mt-8">
+              About Page Photography (URLs)
+            </h3>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="space-y-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#73716B] font-medium">
+                  Image 1 (Hero Pasture)
+                </label>
+                <input
+                  type="text"
+                  value={form.about_image_1 || ''}
+                  onChange={(e) => handleChange('about_image_1', e.target.value)}
+                  placeholder="/images/hero.jpg or https://..."
+                  className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#73716B] font-medium">
+                  Image 2 (Indoor Arena)
+                </label>
+                <input
+                  type="text"
+                  value={form.about_image_2 || ''}
+                  onChange={(e) => handleChange('about_image_2', e.target.value)}
+                  placeholder="/images/about.jpg or https://..."
+                  className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#73716B] font-medium">
+                  Image 3 (Paddocks)
+                </label>
+                <input
+                  type="text"
+                  value={form.about_image_3 || ''}
+                  onChange={(e) => handleChange('about_image_3', e.target.value)}
+                  placeholder="/images/journal.jpg or https://..."
+                  className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#73716B] font-medium">
+                  Image 4 (Rehabilitation)
+                </label>
+                <input
+                  type="text"
+                  value={form.about_image_4 || ''}
+                  onChange={(e) => handleChange('about_image_4', e.target.value)}
+                  placeholder="/images/dressage.jpg or https://..."
+                  className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#B7B0A4]/40 text-[#20201E] focus:outline-none focus:border-[#24362D] min-h-[40px]"
+                />
+              </div>
+            </div>
           </div>
         )}
 

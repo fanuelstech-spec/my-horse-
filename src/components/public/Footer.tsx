@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 {settings.business_name}
               </span>
               <span className="font-sans text-[10px] tracking-[0.25em] text-[#B7B0A4] uppercase block mt-1">
-                Haras Privé & Sanctuaire d'Excellence · Normandie
+                {settings.tagline}
               </span>
             </div>
 
@@ -118,41 +118,43 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
 
             {/* Social icons */}
-            <div className="pt-4 flex items-center space-x-4 text-[#B7B0A4]">
-              {settings.instagram_url && (
-                <a
-                  href={settings.instagram_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Sterling Instagram"
-                  className="p-1.5 hover:text-[#FAF9F6] transition-colors"
-                >
-                  <Instagram className="w-4 h-4" />
-                </a>
-              )}
-              {settings.facebook_url && (
-                <a
-                  href={settings.facebook_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Sterling Facebook"
-                  className="p-1.5 hover:text-[#FAF9F6] transition-colors"
-                >
-                  <Facebook className="w-4 h-4" />
-                </a>
-              )}
-              {settings.youtube_url && (
-                <a
-                  href={settings.youtube_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Sterling YouTube"
-                  className="p-1.5 hover:text-[#FAF9F6] transition-colors"
-                >
-                  <Youtube className="w-4 h-4" />
-                </a>
-              )}
-            </div>
+            {(settings.instagram_url || settings.facebook_url || settings.youtube_url) && (
+              <div className="pt-4 flex items-center space-x-4 text-[#B7B0A4]">
+                {settings.instagram_url && (
+                  <a
+                    href={settings.instagram_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Sterling Instagram"
+                    className="p-1.5 hover:text-[#FAF9F6] transition-colors"
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                )}
+                {settings.facebook_url && (
+                  <a
+                    href={settings.facebook_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Sterling Facebook"
+                    className="p-1.5 hover:text-[#FAF9F6] transition-colors"
+                  >
+                    <Facebook className="w-4 h-4" />
+                  </a>
+                )}
+                {settings.youtube_url && (
+                  <a
+                    href={settings.youtube_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Sterling YouTube"
+                    className="p-1.5 hover:text-[#FAF9F6] transition-colors"
+                  >
+                    <Youtube className="w-4 h-4" />
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         </div>
 

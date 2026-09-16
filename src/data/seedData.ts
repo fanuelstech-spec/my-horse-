@@ -10,7 +10,7 @@ export const INITIAL_SITE_SETTINGS: SiteSettings = {
   whatsapp: '+33 6 45 20 19 88',
   address: 'Route du Haras 14, 14800 Deauville',
   country: 'France',
-  visiting_hours: 'Monday – Saturday: 09:00 to 18:00 (By Private Appointment)',
+  visiting_hours: "Saturday and Sunday 1pm to 5pm",
   instagram_url: 'https://instagram.com/sterlinghorsesales',
   facebook_url: 'https://facebook.com/sterlinghorsesales',
   youtube_url: 'https://youtube.com/@sterlinghorsesales',

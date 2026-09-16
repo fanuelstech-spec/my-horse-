@@ -88,7 +88,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
 
         <div className="lg:col-span-6 aspect-[4/3] overflow-hidden bg-white border border-[#B7B0A4]/35 shadow-sm">
           <img
-            src="/images/hero.jpg"
+            src={settings.about_image_1 || "/images/hero.jpg"}
             alt="Estate pasture in Normandy"
             className="w-full h-full object-cover"
           />
@@ -142,7 +142,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="space-y-4">
             <div className="aspect-[4/3] overflow-hidden bg-[#FAF9F6] border border-[#B7B0A4]/30">
               <img
-                src="/images/about.jpg"
+                src={settings.about_image_2 || "/images/about.jpg"}
                 alt="Indoor arena"
                 className="w-full h-full object-cover"
               />
@@ -156,7 +156,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="space-y-4">
             <div className="aspect-[4/3] overflow-hidden bg-[#FAF9F6] border border-[#B7B0A4]/30">
               <img
-                src="/images/journal.jpg"
+                src={settings.about_image_3 || "/images/journal.jpg"}
                 alt="Estate Paddocks"
                 className="w-full h-full object-cover"
               />
@@ -170,7 +170,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="space-y-4">
             <div className="aspect-[4/3] overflow-hidden bg-[#FAF9F6] border border-[#B7B0A4]/30">
               <img
-                src="/images/dressage.jpg"
+                src={settings.about_image_4 || "/images/dressage.jpg"}
                 alt="Veterinary and rehabilitation wing"
                 className="w-full h-full object-cover"
               />

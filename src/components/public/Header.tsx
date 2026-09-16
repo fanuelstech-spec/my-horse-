@@ -39,7 +39,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
             STERLING
           </span>
           <span className="block font-sans text-[9px] sm:text-[10px] tracking-[0.25em] text-[#73716B] uppercase mt-0.5">
-            Haras & Domaine Équestre · Deauville
+            {settings.tagline}
           </span>
         </button>
 

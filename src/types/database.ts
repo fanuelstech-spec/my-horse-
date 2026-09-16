@@ -163,3 +163,15 @@ export interface SiteSettings {
   about_image_4?: string | null;
   updated_at?: string;
 }
+
+export interface SuccessStory {
+  id: string;
+  buyer_name: string;
+  horse_name: string;
+  location?: string | null;
+  testimonial: string;
+  image_url?: string | null;
+  published: boolean;
+  created_at: string;
+  updated_at: string;
+}

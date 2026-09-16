@@ -15,12 +15,14 @@ import {
   INITIAL_SITE_SETTINGS,
 } from '../data/seedData';
 import { supabase, isSupabaseConfigured, testSupabaseConnection } from './supabase';
+import { SuccessStory } from "../types/database";
 
 interface EstateContextType {
   // State
   horses: Horse[];
   rescues: Rescue[];
   journal: JournalPost[];
+  testimonials: SuccessStory[];
   messages: ContactMessage[];
   settings: SiteSettings;
   currentUser: Profile | null;
@@ -75,6 +77,7 @@ const STORAGE_KEY_RESCUES = 'sterling_rescues_v1';
 const STORAGE_KEY_JOURNAL = 'sterling_journal_v1';
 const STORAGE_KEY_MESSAGES = 'sterling_messages_v1';
 const STORAGE_KEY_SETTINGS = 'sterling_settings_v1';
+const STORAGE_KEY_TESTIMONIALS = "sterling_testimonials_v1";
 const STORAGE_KEY_AUTH = 'sterling_auth_v1';
 
 export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -102,6 +105,39 @@ export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       console.warn('Error reading saved rescues:', e);
     }
     return INITIAL_RESCUES;
+  });
+
+  const [testimonials, setTestimonials] = useState<SuccessStory[]>(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY_TESTIMONIALS);
+      if (saved) return JSON.parse(saved);
+    } catch (e) {
+      console.warn('Failed to parse local storage:', e);
+    }
+    return [
+      {
+        id: '1',
+        buyer_name: 'Sarah M.',
+        horse_name: 'Dakota',
+        location: 'Colorado',
+        testimonial: "We had been looking for a safe, dependable trail horse for our family for over six months. Sterling took the time to understand exactly what we needed and matched us with a wonderful gelding. The process was completely transparent, and they helped coordinate shipping all the way to our ranch. We couldn't be happier.",
+        image_url: '/images/hero.jpg',
+        published: true,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      },
+      {
+        id: '2',
+        buyer_name: 'David T.',
+        horse_name: 'Blue',
+        location: 'Texas',
+        testimonial: "As a professional trainer, I appreciate honest representation above all else. The horse I purchased through Sterling was exactly as described—sound, sane, and ready to work. Their communication throughout the entire transaction was excellent. Highly recommend working with them.",
+        image_url: '/images/about.jpg',
+        published: true,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      }
+    ];
   });
 
   const [journal, setJournal] = useState<JournalPost[]>(() => {
@@ -166,6 +202,10 @@ export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY_JOURNAL, JSON.stringify(journal));
   }, [journal]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY_TESTIMONIALS, JSON.stringify(testimonials));
+  }, [testimonials]);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY_MESSAGES, JSON.stringify(messages));
@@ -756,6 +796,34 @@ export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, []);
 
   // 7. Image Upload Helper
+  const addTestimonial = useCallback(async (data: Omit<SuccessStory, 'id' | 'created_at' | 'updated_at'>) => {
+    const newTestimonial: SuccessStory = {
+      ...data,
+      id: Math.random().toString(36).substr(2, 9),
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    };
+    setTestimonials(prev => [newTestimonial, ...prev]);
+    return newTestimonial;
+  }, []);
+
+  const updateTestimonial = useCallback(async (id: string, updates: Partial<SuccessStory>) => {
+    let updatedTestimonial: SuccessStory | null = null;
+    setTestimonials(prev => prev.map(t => {
+      if (t.id === id) {
+        updatedTestimonial = { ...t, ...updates, updated_at: new Date().toISOString() };
+        return updatedTestimonial;
+      }
+      return t;
+    }));
+    if (!updatedTestimonial) throw new Error('Testimonial not found');
+    return updatedTestimonial;
+  }, []);
+
+  const deleteTestimonial = useCallback(async (id: string) => {
+    setTestimonials(prev => prev.filter(t => t.id !== id));
+  }, []);
+
   const uploadImage = useCallback(
     async (file: File, bucket: 'horse-images' | 'rescue-images' | 'journal-images' | 'site-images'): Promise<string> => {
       // If Supabase is connected, upload to Supabase storage bucket

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Heart, ArrowRight } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Heart, ArrowRight, Check } from 'lucide-react';
 import { useEstate } from '../lib/estateContext';
 import { StatusBadge } from '../components/public/StatusBadge';
 
@@ -8,149 +8,168 @@ interface RescuePageProps {
 }
 
 export const RescuePage: React.FC<RescuePageProps> = ({ onNavigate }) => {
-  const { rescues } = useEstate();
+  const { rescues, settings } = useEstate();
   const publishedRescues = rescues.filter((r) => r.published);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-24 space-y-20 sm:space-y-28">
-      {/* 1. EDITORIAL INTRO */}
+      
+      {/* 1. HERO / INTRO */}
       <section className="max-w-4xl space-y-6">
         <div className="flex items-center space-x-2 text-[#A89472]">
           <Heart className="w-4 h-4 fill-current" />
           <span className="text-[10px] uppercase tracking-[0.3em] font-semibold">
-            Equine Sanctuary & Welfare
+            Horse Rescue & Second Chances
           </span>
         </div>
+        
         <h1 className="font-serif text-4xl sm:text-6xl text-[#20201E] font-normal leading-[1.12]">
-          The Sanctuary at Sterling: Dignity restored with patience and quiet affection.
+          Every Horse Deserves Another Chance.
         </h1>
+        
         <div className="text-sm sm:text-base text-[#73716B] leading-relaxed font-light space-y-4">
           <p>
-            While our breeding program pursues high athletic precision, our sanctuary exists to honour the vulnerability inherent in every equine life. Over forty years, Sterling has opened its paddocks to sport horses cast aside through injury, neglect, or commercial abandonment.
+            Our rescue work is driven by a simple belief: horses deserve safety, care, patience, and the opportunity to have a better life.
           </p>
           <p>
-            We operate this work entirely through our own resources—without public charity solicitations or commercial fanfare. For horses capable of thriving in companion or light pleasure partnerships, we search meticulously for permanent, loving homes. For those whose bodies or minds require peace, Sterling remains their forever home.
+            Horse rescue is not a profit-making part of our work. When a horse needs help, our priority is its welfare—not the financial return.
           </p>
         </div>
       </section>
 
-      {/* 2. SANCTUARY PILLARS */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="p-8 bg-white border border-[#B7B0A4]/35 space-y-3">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#A89472] font-semibold">
-            Principle 01
+      {/* 2. THE MISSION & A SECOND CHANCE */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+        <div className="space-y-4">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-[#A89472] font-semibold block">
+            Our Mission
           </span>
-          <h3 className="font-serif text-2xl text-[#20201E]">Unconditional Time</h3>
-          <p className="text-xs text-[#73716B] leading-relaxed font-light">
-            Trauma cannot be rushed. We give distressed horses months of pasture liberty and gentle handling before asking anything of them.
+          <p className="text-sm text-[#73716B] font-light leading-relaxed">
+            We help horses that may have been neglected, abandoned, surrendered, displaced, or simply found themselves without a safe home. Whenever possible, we provide them with proper care, rehabilitation, training, and time to recover.
+          </p>
+          <p className="text-sm text-[#73716B] font-light leading-relaxed">
+            We believe a difficult past does not have to define a horse's future.
           </p>
         </div>
-
-        <div className="p-8 bg-white border border-[#B7B0A4]/35 space-y-3">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#A89472] font-semibold">
-            Principle 02
+        <div className="space-y-4">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-[#A89472] font-semibold block">
+            A Second Chance
           </span>
-          <h3 className="font-serif text-2xl text-[#20201E]">Advanced Veterinary Care</h3>
-          <p className="text-xs text-[#73716B] leading-relaxed font-light">
-            Each rescue receives the same world-class orthopedic, dental, and nutritional care as our premier competition athletes.
+          <p className="text-sm text-[#73716B] font-light leading-relaxed">
+            Some horses arrive needing more than food and shelter. They may need veterinary attention, rehabilitation, patience, retraining, or simply time to learn to trust people again.
           </p>
-        </div>
-
-        <div className="p-8 bg-white border border-[#B7B0A4]/35 space-y-3">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#A89472] font-semibold">
-            Principle 03
-          </span>
-          <h3 className="font-serif text-2xl text-[#20201E]">Lifelong Guarantee</h3>
-          <p className="text-xs text-[#73716B] leading-relaxed font-light">
-            Every rehomed sanctuary horse is bound by our perpetual covenant: they can never be sold at public auction and may return at any time.
+          <p className="text-sm text-[#73716B] font-light leading-relaxed">
+            Our goal is to give each horse the opportunity to heal, rebuild confidence, and move toward a safe and suitable future home.
           </p>
         </div>
       </section>
 
-      {/* 3. RESCUE STORIES GRID */}
-      <section className="space-y-12">
-        <div className="border-b border-[#B7B0A4]/30 pb-4">
-          <h2 className="font-serif text-3xl sm:text-4xl text-[#20201E] font-normal">
-            Restored Lives & Stories
-          </h2>
-          <p className="text-xs text-[#73716B] mt-1 font-light">
-            Journeys of rehabilitation, resilience, and newfound peace at Sterling.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
-          {publishedRescues.map((rescue) => {
-            const coverImage =
-              rescue.images?.[0]?.url ||
-              '/images/rescue.jpg';
-
-            return (
-              <article
-                key={rescue.id}
-                onClick={() => onNavigate(`/rescue/${rescue.slug}`)}
-                className="group cursor-pointer flex flex-col bg-white border border-[#B7B0A4]/35 hover:border-[#20201E] transition-all duration-300"
-              >
-                {/* Photo */}
-                <div className="aspect-[4/3] w-full overflow-hidden bg-[#FAF9F6] relative">
-                  <img
-                    src={coverImage}
-                    alt={rescue.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute top-3 right-3">
-                    <StatusBadge status={rescue.status} />
-                  </div>
-                </div>
-
-                {/* Details */}
-                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
-                  <div>
-                    <span className="text-[10px] uppercase tracking-wider text-[#A89472] font-medium">
-                      Rescued {rescue.rescue_date}
-                    </span>
-
-                    <h3 className="font-serif text-2xl sm:text-3xl text-[#20201E] mt-1 font-normal group-hover:text-[#24362D] transition-colors">
-                      {rescue.name}
-                    </h3>
-
-                    <p className="mt-3 text-xs text-[#73716B] leading-relaxed line-clamp-3 font-light">
-                      {rescue.short_description}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#B7B0A4]/20 flex items-center justify-between">
-                    <span className="text-xs font-serif italic text-[#73716B]">
-                      {rescue.location || 'Sterling Sanctuary'}
-                    </span>
-                    <span className="inline-flex items-center text-xs uppercase tracking-[0.15em] text-[#20201E] font-medium group-hover:translate-x-0.5 transition-transform">
-                      <span>Read Story</span>
-                      <ArrowRight className="w-3 h-3 ml-1.5" />
-                    </span>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+      {/* 3. WHAT WE PROVIDE */}
+      <section className="bg-white border border-[#B7B0A4]/35 p-8 sm:p-12">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-[#A89472] font-semibold block text-center">
+            What We Provide
+          </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              "Safe shelter and daily care",
+              "Proper nutrition and fresh water",
+              "Veterinary care when needed",
+              "Rehabilitation and recovery",
+              "Patient handling and retraining",
+              "Socialization and confidence building",
+              "Careful placement into suitable homes"
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-start space-x-3 p-4 bg-[#FAF9F6] border border-[#B7B0A4]/20">
+                <Check className="w-4 h-4 text-[#A89472] mt-0.5 shrink-0" />
+                <span className="text-sm text-[#20201E] font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 4. SANCTUARY CONTACT CTA */}
-      <section className="bg-[#FAF9F6] border border-[#B7B0A4]/40 p-10 sm:p-16 text-center space-y-6">
-        <h2 className="font-serif text-3xl text-[#20201E] font-normal">
-          Inquire About Rehoming or Sanctuary Partnerships
-        </h2>
-        <p className="text-xs sm:text-sm text-[#73716B] max-w-xl mx-auto font-light leading-relaxed">
-          If you have the acreage, experience, and commitment to offer an approved forever home to one of our rehabilitated horses, we invite you to begin a dialogue with our welfare custodian.
+      {/* 4. RESPONSIBLE REHOMING */}
+      <section className="max-w-3xl space-y-4 border-l-4 border-[#A89472] pl-6 py-2">
+        <span className="text-[10px] uppercase tracking-[0.2em] text-[#A89472] font-semibold block">
+          Responsible Rehoming
+        </span>
+        <p className="text-base sm:text-lg text-[#20201E] font-serif leading-relaxed">
+          When a rescued horse is ready for a new home, we take the time to consider whether the home is appropriate for that individual horse. Our goal is not simply to move a horse on—it is to give that horse a lasting second chance.
         </p>
-        <div>
-          <button
-            onClick={() => onNavigate('/contact?subject=Sanctuary%20Enquiry')}
-            className="px-8 py-3.5 bg-[#24362D] text-white text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#1a2820] transition-colors"
-          >
-            Contact the Sanctuary Custodian
-          </button>
-        </div>
       </section>
+
+      {/* 5. RESCUE HORSES GRID */}
+      {publishedRescues.length > 0 && (
+        <section className="space-y-8 pt-8 border-t border-[#B7B0A4]/30">
+          <h2 className="font-serif text-2xl sm:text-3xl text-[#20201E]">Current Rescues</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {publishedRescues.map((horse) => {
+              const coverImg = horse.images?.find((img) => img.is_cover) || horse.images?.[0];
+              
+              return (
+                <div 
+                  key={horse.id} 
+                  onClick={() => onNavigate(`/rescue/${horse.slug}`)}
+                  className="group cursor-pointer flex flex-col bg-white border border-[#B7B0A4]/35 overflow-hidden transition-all hover:border-[#24362D]/50 hover:shadow-lg"
+                >
+                  <div className="aspect-[4/3] relative overflow-hidden bg-[#FAF9F6]">
+                    {coverImg ? (
+                      <img
+                        src={coverImg.url}
+                        alt={horse.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-[#B7B0A4]">
+                        <Heart className="w-8 h-8 opacity-20" />
+                      </div>
+                    )}
+                    <div className="absolute top-4 left-4">
+                      <StatusBadge status={horse.status} type="rescue" />
+                    </div>
+                  </div>
+                  <div className="p-6 space-y-4 flex-1 flex flex-col">
+                    <div>
+                      <h3 className="font-serif text-2xl text-[#20201E]">{horse.name}</h3>
+                    </div>
+                    <p className="text-sm text-[#73716B] font-light line-clamp-2">
+                      {horse.short_description}
+                    </p>
+                    <div className="mt-auto pt-4 flex items-center text-[10px] uppercase tracking-widest text-[#24362D] font-semibold group-hover:text-[#A89472] transition-colors">
+                      <span>Read Story</span>
+                      <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* 6. HELP US */}
+      <section className="text-center bg-[#FAF9F6] border border-[#B7B0A4]/40 p-12 space-y-6 mt-16">
+        <h2 className="font-serif text-2xl sm:text-3xl text-[#20201E] font-normal">
+          Help Us Give Horses a Second Chance
+        </h2>
+        <p className="text-sm text-[#73716B] max-w-xl mx-auto font-light leading-relaxed">
+          Every rescue takes time, resources, patience, and commitment. Support from people who care about horses helps us continue providing these animals with the care they need.
+        </p>
+        <p className="text-base text-[#20201E] font-serif italic pb-4">
+          Because sometimes, all a horse needs is someone willing to give it another chance.
+        </p>
+        <button
+          onClick={() => onNavigate('/contact')}
+          className="px-8 py-3 bg-[#24362D] text-white text-xs uppercase tracking-[0.2em] hover:bg-[#1b2a22] transition-colors font-medium"
+        >
+          Learn How to Help
+        </button>
+      </section>
+
     </div>
   );
 };

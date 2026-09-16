@@ -10,8 +10,6 @@ import { HorsesPage } from './pages/HorsesPage';
 import { HorseDetailPage } from './pages/HorseDetailPage';
 import { RescuePage } from './pages/RescuePage';
 import { RescueDetailPage } from './pages/RescueDetailPage';
-import { JournalPage } from './pages/JournalPage';
-import { JournalDetailPage } from './pages/JournalDetailPage';
 import { ContactPage } from './pages/ContactPage';
 import { PrivacyPage, TermsPage } from './pages/LegalPages';
 
@@ -21,9 +19,9 @@ import { AdminLoginPage } from './pages/admin/AdminLoginPage';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { AdminHorsesPage } from './pages/admin/AdminHorsesPage';
 import { AdminRescuePage } from './pages/admin/AdminRescuePage';
-import { AdminJournalPage } from './pages/admin/AdminJournalPage';
 import { AdminMessagesPage } from './pages/admin/AdminMessagesPage';
 import { AdminSettingsPage } from './pages/admin/AdminSettingsPage';
+import { AdminTestimonialsPage } from "./pages/admin/AdminTestimonialsPage";
 
 function EstateAppContent() {
   const { isAdmin, horses, rescues, journal } = useEstate();
@@ -94,16 +92,11 @@ function EstateAppContent() {
             onNavigate={navigate}
           />
         )}
-        {currentPath.startsWith('/admin/journal') && (
-          <AdminJournalPage
-            initialAction={searchParams.get('action')}
-            onNavigate={navigate}
-          />
-        )}
         {currentPath.startsWith('/admin/contact') && (
           <AdminMessagesPage onNavigate={navigate} />
         )}
         {currentPath.startsWith('/admin/settings') && <AdminSettingsPage />}
+        {currentPath.startsWith('/admin/testimonials') && <AdminTestimonialsPage onNavigate={navigate} />}
       </AdminLayout>
     );
   }
@@ -158,27 +151,6 @@ function EstateAppContent() {
             r.name?.toLowerCase().replace(/\s+/g, '-') === slugOrId.toLowerCase()
         );
       return <RescueDetailPage slug={slugOrId} rescue={rescue} onNavigate={navigate} />;
-    }
-
-    // 5. Journal
-    if (currentPath === '/journal' || currentPath === '/news' || currentPath === '/stories') {
-      return <JournalPage onNavigate={navigate} />;
-    }
-    if (currentPath.startsWith('/journal/') || currentPath.startsWith('/news/') || currentPath.startsWith('/story/')) {
-      const prefixMatch = currentPath.match(/^(\/journal\/|\/news\/|\/story\/)/);
-      const prefix = prefixMatch ? prefixMatch[0] : '/journal/';
-      const rawSlug = currentPath.slice(prefix.length).replace(/\/$/, '');
-      const slugOrId = decodeURIComponent(rawSlug.split('?')[0]);
-      const post =
-        journal.find(
-          (p) =>
-            p.slug === slugOrId ||
-            p.id === slugOrId ||
-            p.slug?.toLowerCase() === slugOrId.toLowerCase() ||
-            p.id?.toLowerCase() === slugOrId.toLowerCase() ||
-            p.title?.toLowerCase().replace(/\s+/g, '-') === slugOrId.toLowerCase()
-        );
-      return <JournalDetailPage slug={slugOrId} post={post} onNavigate={navigate} />;
     }
 
     // 6. Contact

@@ -57,7 +57,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
     { label: 'Dashboard', path: '/admin', icon: LayoutDashboard },
     { label: 'Horses', path: '/admin/horses', icon: Compass },
     { label: 'Rescue Program', path: '/admin/rescue', icon: Heart },
-    { label: 'Estate Journal', path: '/admin/journal', icon: BookOpen },
+    { label: 'Testimonials', path: '/admin/testimonials', icon: Heart },
     {
       label: 'Enquiries',
       path: '/admin/contact',

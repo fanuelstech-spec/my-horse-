@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowRight, Compass, Heart, BookOpen, ShieldCheck } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { ArrowRight, Heart } from 'lucide-react';
 import { useEstate } from '../lib/estateContext';
 import { StatusBadge } from '../components/public/StatusBadge';
 
@@ -8,192 +8,156 @@ interface HomePageProps {
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
-  const { horses, rescues, journal, settings } = useEstate();
+  const { settings, horses, rescues, testimonials } = useEstate();
 
-  // Filter published horses for featured section
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const featuredHorses = horses
-    .filter((h) => h.published && (h.featured || h.status === 'Available'))
+    .filter((h) => h.published && h.featured && h.status !== 'Sold')
     .slice(0, 3);
-
-  const featuredRescue = rescues.find((r) => r.published && r.featured) || rescues[0];
-  const featuredArticles = journal.filter((p) => p.published).slice(0, 2);
-
+    
+  const featuredRescue = rescues.find((r) => r.published && r.featured);
+  
   return (
-    <div className="space-y-24 sm:space-y-32 lg:space-y-40 pb-24">
+        <div className="pt-24 pb-20 space-y-24 sm:space-y-32">
+      
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#20201E]">
-        {/* Background Photograph */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero.jpg"
-            alt="Warmblood in the misty morning pasture at Sterling Estate"
-            className="w-full h-full object-cover object-center opacity-75"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#20201E] via-[#20201E]/40 to-black/20" />
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 text-center text-[#FAF9F6] pt-16 pb-12">
-          {/* Eyebrow */}
-          <span className="inline-block text-[11px] sm:text-xs font-sans tracking-[0.35em] text-[#B7B0A4] uppercase mb-4">
-            EST. 1984 · PAYS D'AUGE, NORMANDY
-          </span>
-
-          {/* Large Editorial Headline */}
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight leading-[1.08] max-w-4xl mx-auto">
-            Exceptional Horses.
-            <br />
-            <span className="italic font-light">Thoughtfully Bred.</span>
-          </h1>
-
-          {/* Short Supporting Copy */}
-          <p className="mt-6 sm:mt-8 font-sans text-base sm:text-lg text-[#FAF9F6]/90 max-w-2xl mx-auto font-light leading-relaxed">
-            A private estate dedicated to classical French lineages, athletic longevity, and the respectful stewardship of every equine life.
-          </p>
-
-          {/* CTAs */}
-          <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-            <button
-              onClick={() => onNavigate('/horses')}
-              className="w-full sm:w-auto px-8 py-3.5 bg-[#FAF9F6] text-[#20201E] text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-all shadow-lg"
-              id="hero-view-horses-btn"
-            >
-              View Our Horses
-            </button>
-            <button
-              onClick={() => onNavigate('/about')}
-              className="w-full sm:w-auto px-8 py-3.5 border border-[#FAF9F6]/60 text-[#FAF9F6] text-xs uppercase tracking-[0.2em] hover:border-white hover:bg-white/10 transition-all"
-              id="hero-story-btn"
-            >
-              Our Story
-            </button>
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 animate-in fade-in duration-700">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Image */}
+          <div className="lg:col-span-6 order-2 lg:order-1">
+            <div className="aspect-[4/5] lg:aspect-square w-full overflow-hidden bg-[#FAF9F6] border border-[#B7B0A4]/35 shadow-sm">
+              <img
+                src={settings.about_image_1 || "/images/hero.jpg"}
+                alt="Sterling Horse Sale Houston Texas"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* 2. INTRODUCTION SECTION (Asymmetric Editorial Layout) */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          {/* Left Text Column */}
-          <div className="lg:col-span-6 space-y-6">
+          
+          {/* Right Content */}
+          <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
             <span className="text-[10px] uppercase tracking-[0.3em] text-[#A89472] font-semibold">
-              The Breeding Philosophy
+              {settings.business_name}
             </span>
-            <h2 className="font-serif text-3xl sm:text-5xl text-[#20201E] leading-tight font-normal">
-              Breeding with purpose,
-              <br />
-              <span className="italic">patience, and reverence.</span>
-            </h2>
-            <div className="space-y-4 text-sm sm:text-base text-[#73716B] leading-relaxed font-light">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl text-[#20201E] font-normal leading-[1.1] tracking-tight">
+              Find the Horse That Fits Your Life.
+            </h1>
+            
+            <div className="text-sm sm:text-base text-[#73716B] leading-relaxed font-light space-y-4 pt-4">
               <p>
-                At Sterling, we reject commercial haste. True excellence in equine breeding cannot be manufactured in a single season. It requires generational patience, an unwavering dedication to damline integrity, and an intimate understanding of biomechanical soundness.
+                Based in Houston, Texas, {settings.business_name} is dedicated to connecting buyers with quality horses while providing a professional, transparent, and straightforward purchasing experience.
               </p>
               <p>
-                Our horses are raised naturally in large herd environments across 180 hectares of fertile Normandy pastureland. From their first days, they develop spatial balance, unshakeable confidence, and profound trust in human stewardship.
+                We believe finding the right horse starts with understanding both the horse and the buyer. Our approach is centered on responsible horse handling, accurate information, and helping each buyer find a horse that fits their experience, goals, and lifestyle.
               </p>
             </div>
-
-            <div className="pt-4">
+            
+            <div className="pt-8 flex flex-col sm:flex-row gap-4 items-start">
+              <button
+                onClick={() => onNavigate('/horses')}
+                className="w-full sm:w-auto px-8 py-3.5 bg-[#24362D] text-white text-xs uppercase tracking-[0.18em] hover:bg-[#1b2a22] transition-colors font-medium flex items-center justify-center space-x-2"
+              >
+                <span>View Available Horses</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
               <button
                 onClick={() => onNavigate('/about')}
-                className="group inline-flex items-center text-xs uppercase tracking-[0.2em] text-[#24362D] font-medium border-b border-[#24362D] pb-1 hover:text-[#16221c]"
+                className="w-full sm:w-auto px-8 py-3.5 border border-[#20201E] text-[#20201E] text-xs uppercase tracking-[0.18em] hover:bg-[#FAF9F6] transition-colors font-medium text-center"
               >
-                <span>Discover Our Philosophy</span>
-                <ArrowRight className="w-3.5 h-3.5 ml-2 transition-transform group-hover:translate-x-1" />
+                About Us
               </button>
             </div>
           </div>
-
-          {/* Right Image Composition */}
-          <div className="lg:col-span-6 relative">
-            <div className="aspect-[4/5] overflow-hidden bg-[#FAF9F6] border border-[#B7B0A4]/30 shadow-sm">
-              <img
-                src="/images/about.jpg"
-                alt="Sterling training in the classical arena"
-                className="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-700"
-              />
-            </div>
-            {/* Small Overlay Quote Card */}
-            <div className="hidden sm:block absolute -bottom-8 -left-8 bg-[#FAF9F6] border border-[#B7B0A4]/40 p-6 max-w-xs shadow-md">
-              <p className="font-serif italic text-sm text-[#20201E] leading-relaxed">
-                "A horse trained with clarity and kindness will always offer more than one asked with force."
-              </p>
-              <span className="block text-[9px] uppercase tracking-widest text-[#73716B] mt-2">
-                — Henri Sterling
-              </span>
-            </div>
-          </div>
+          
         </div>
       </section>
 
-      {/* 3. CURRENTLY AVAILABLE HORSES */}
+      {/* 2. FEATURED HORSES FOR SALE */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 border-b border-[#B7B0A4]/30 pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[#B7B0A4]/30 pb-6">
           <div>
             <span className="text-[10px] uppercase tracking-[0.3em] text-[#A89472] font-semibold block">
               Curated Selection
             </span>
             <h2 className="font-serif text-3xl sm:text-5xl text-[#20201E] mt-1 font-normal">
-              Currently Available
+              Featured Horses
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-[#73716B] font-light max-w-md mt-4 md:mt-0">
-            Selected Warmblood sport horses prepared under classical discipline for private sale and competition partnership.
-          </p>
+          <button
+            onClick={() => onNavigate('/horses')}
+            className="text-xs uppercase tracking-[0.18em] text-[#24362D] font-medium hover:underline mt-4 md:mt-0"
+          >
+            Explore Collection →
+          </button>
         </div>
 
-        {/* Large Editorial Horse Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
           {featuredHorses.map((horse) => {
-            const coverImage =
-              horse.images?.find((img) => img.is_cover)?.url ||
-              horse.images?.[0]?.url ||
-              '/images/dressage.jpg';
-
+            const coverImg = horse.images?.find((img) => img.is_cover) || horse.images?.[0];
+            
             return (
               <article
                 key={horse.id}
-                onClick={() => onNavigate(`/horses/${horse.slug}`)}
-                className="group cursor-pointer flex flex-col bg-white border border-[#B7B0A4]/35 hover:border-[#20201E] transition-all duration-300"
+                onClick={() => onNavigate(`/horse/${horse.slug}`)}
+                className="group cursor-pointer flex flex-col bg-white border border-[#B7B0A4]/35 overflow-hidden hover:border-[#24362D]/50 hover:shadow-md transition-all duration-300"
               >
-                {/* Large Editorial Photograph */}
-                <div className="aspect-[4/3] w-full overflow-hidden bg-[#FAF9F6] relative">
-                  <img
-                    src={coverImage}
-                    alt={horse.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute top-3 right-3">
+                <div className="aspect-[4/3] relative overflow-hidden bg-[#FAF9F6]">
+                  {coverImg ? (
+                    <img
+                      src={coverImg.url}
+                      alt={horse.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-[#B7B0A4]/50">
+                      No Photo
+                    </div>
+                  )}
+                  <div className="absolute top-4 left-4">
                     <StatusBadge status={horse.status} />
                   </div>
                 </div>
 
-                {/* Details */}
-                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
-                  <div>
-                    <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-[#73716B]">
-                      <span>{horse.breed}</span>
-                      <span>{horse.discipline}</span>
+                <div className="p-6 space-y-4 flex flex-col flex-1">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-serif text-2xl text-[#20201E]">{horse.name}</h3>
+                      <p className="text-[10px] uppercase tracking-[0.15em] text-[#A89472] mt-1 font-semibold">
+                        {horse.breed}
+                      </p>
                     </div>
-
-                    <h3 className="font-serif text-2xl sm:text-3xl text-[#20201E] mt-1 font-normal group-hover:text-[#24362D] transition-colors">
-                      {horse.name}
-                    </h3>
-
-                    <p className="text-xs text-[#A89472] mt-0.5 tracking-wider uppercase font-sans">
-                      {horse.sex} · {horse.age ? `${horse.age} Years` : 'Age on record'} · {horse.height || 'Height on record'}
-                    </p>
-
-                    <p className="mt-3 text-xs text-[#73716B] leading-relaxed line-clamp-2 font-light">
-                      {horse.short_description}
-                    </p>
+                    {horse.price && (
+                      <p className="font-mono text-sm text-[#20201E] tracking-tight whitespace-nowrap bg-[#FAF9F6] px-2 py-1 border border-[#B7B0A4]/30">
+                        {horse.currency || '$'}{horse.price.toLocaleString()}
+                      </p>
+                    )}
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-[11px] text-[#73716B] uppercase tracking-wider border-t border-b border-[#B7B0A4]/20 py-3">
+                    <div className="flex flex-col">
+                      <span className="text-[9px] text-[#A89472]">Age</span>
+                      <span className="font-medium text-[#20201E]">{horse.age ? `${horse.age} Years` : 'TBD'}</span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[9px] text-[#A89472]">Height</span>
+                      <span className="font-medium text-[#20201E]">{horse.height || 'TBD'}</span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[9px] text-[#A89472]">Sex</span>
+                      <span className="font-medium text-[#20201E]">{horse.sex}</span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[9px] text-[#A89472]">Discipline</span>
+                      <span className="font-medium text-[#20201E] truncate" title={horse.discipline}>{horse.discipline}</span>
+                    </div>
                   </div>
 
-                  <div className="pt-4 border-t border-[#B7B0A4]/20 flex items-center justify-between">
-                    <span className="text-xs font-serif italic text-[#73716B]">
-                      {horse.location || 'Normandy Estate'}
-                    </span>
-                    <span className="inline-flex items-center text-xs uppercase tracking-[0.15em] text-[#20201E] font-medium group-hover:translate-x-0.5 transition-transform">
+                  <div className="mt-auto pt-2">
+                    <span className="inline-flex items-center text-[10px] uppercase tracking-[0.15em] text-[#24362D] font-bold group-hover:text-[#A89472] transition-colors">
                       <span>View Horse</span>
                       <ArrowRight className="w-3 h-3 ml-1.5" />
                     </span>
@@ -203,19 +167,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             );
           })}
         </div>
-
-        {/* View All Horses Bottom Button */}
-        <div className="mt-14 text-center">
-          <button
-            onClick={() => onNavigate('/horses')}
-            className="px-10 py-3.5 border border-[#20201E] text-[#20201E] text-xs uppercase tracking-[0.2em] hover:bg-[#20201E] hover:text-[#FAF9F6] transition-all duration-300 font-medium"
-          >
-            View All Horses
-          </button>
-        </div>
       </section>
 
-      {/* 4. DEDICATED RESCUE & SANCTUARY SECTION */}
+      {/* 3. DEDICATED RESCUE & SANCTUARY SECTION */}
       {featuredRescue && (
         <section className="bg-[#FAF9F6] border-y border-[#B7B0A4]/30 py-20 lg:py-28">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -233,37 +187,37 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   />
                 </div>
               </div>
-
+              
               {/* Right Content */}
               <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
                 <div className="flex items-center space-x-2">
                   <Heart className="w-4 h-4 text-[#A89472]" />
                   <span className="text-[10px] uppercase tracking-[0.3em] text-[#A89472] font-semibold">
-                    The Sanctuary Wing
+                    Horse Rescue & Second Chances
                   </span>
                 </div>
-
+                
                 <h2 className="font-serif text-3xl sm:text-5xl text-[#20201E] leading-tight font-normal">
-                  Every Horse Deserves a Future.
+                  Every Horse Deserves Another Chance.
                 </h2>
-
+                
                 <p className="text-sm sm:text-base text-[#73716B] leading-relaxed font-light">
-                  Alongside our competitive breeding program, Sterling sustains a 40-hectare rehabilitation haven. Here, vulnerable, injured, or surrendered horses receive comprehensive medical restoration, tailored nutrition, and lifelong sanctuary.
+                  Our rescue work is driven by a simple belief: horses deserve safety, care, patience, and the opportunity to have a better life.
                 </p>
-
+                
                 {/* Featured Rescue Highlight */}
                 <div className="p-5 bg-white border border-[#B7B0A4]/35 space-y-2">
                   <div className="flex items-center justify-between">
                     <h3 className="font-serif text-xl text-[#20201E]">
                       Story Highlight: {featuredRescue.name}
                     </h3>
-                    <StatusBadge status={featuredRescue.status} />
+                    <StatusBadge status={featuredRescue.status} type="rescue" />
                   </div>
                   <p className="text-xs text-[#73716B] leading-relaxed font-light">
                     {featuredRescue.short_description}
                   </p>
                 </div>
-
+                
                 <div className="pt-2 flex flex-wrap gap-4">
                   <button
                     onClick={() => onNavigate(`/rescue/${featuredRescue.slug}`)}
@@ -275,7 +229,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     onClick={() => onNavigate('/rescue')}
                     className="px-6 py-3 border border-[#20201E] text-[#20201E] text-xs uppercase tracking-[0.18em] hover:bg-[#20201E] hover:text-[#FAF9F6] transition-colors"
                   >
-                    Explore The Sanctuary
+                    Learn About Our Rescues
                   </button>
                 </div>
               </div>
@@ -283,99 +237,78 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </div>
         </section>
       )}
-
-      {/* 5. JOURNAL PREVIEW */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[#B7B0A4]/30 pb-6">
-          <div>
+      
+      {/* 4. SUCCESS STORIES */}
+      {testimonials && testimonials.filter(t => t.published).length > 0 && (
+        <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="text-[10px] uppercase tracking-[0.3em] text-[#A89472] font-semibold block">
-              Writings & Reflections
+              Testimonials
             </span>
             <h2 className="font-serif text-3xl sm:text-5xl text-[#20201E] mt-1 font-normal">
-              The Estate Journal
+              Successful Matches
             </h2>
+            <p className="text-sm text-[#73716B] leading-relaxed font-light">
+              Hear from buyers who have found their perfect equine partner through Sterling Horse Sale.
+            </p>
           </div>
-          <button
-            onClick={() => onNavigate('/journal')}
-            className="text-xs uppercase tracking-[0.18em] text-[#24362D] font-medium hover:underline mt-4 md:mt-0"
-          >
-            All Journal Entries →
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
-          {featuredArticles.map((article) => (
-            <article
-              key={article.id}
-              onClick={() => onNavigate(`/journal/${article.slug}`)}
-              className="group cursor-pointer space-y-4"
-            >
-              <div className="aspect-[16/10] overflow-hidden bg-white border border-[#B7B0A4]/30">
-                <img
-                  src={article.featured_image}
-                  alt={article.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center space-x-3 text-[11px] text-[#73716B] uppercase tracking-wider">
-                  <span className="text-[#A89472] font-medium">{article.category}</span>
-                  <span>·</span>
-                  <span>{article.author}</span>
-                </div>
-
-                <h3 className="font-serif text-2xl text-[#20201E] group-hover:text-[#24362D] transition-colors font-normal leading-snug">
-                  {article.title}
-                </h3>
-
-                <p className="text-xs text-[#73716B] leading-relaxed line-clamp-2 font-light">
-                  {article.excerpt}
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {testimonials.filter(t => t.published).map((t) => (
+              <div key={t.id} className="bg-[#FAF9F6] border border-[#B7B0A4]/30 p-8 sm:p-12 space-y-6 relative">
+                <span className="absolute top-8 left-8 text-6xl text-[#A89472]/20 font-serif leading-none select-none">"</span>
+                <p className="text-sm sm:text-base text-[#20201E] leading-relaxed font-serif relative z-10 italic">
+                  "{t.testimonial}"
                 </p>
-
-                <div className="pt-2">
-                  <span className="inline-flex items-center text-xs uppercase tracking-[0.15em] text-[#20201E] font-medium group-hover:translate-x-0.5 transition-transform">
-                    <span>Read Article</span>
-                    <ArrowRight className="w-3 h-3 ml-1.5" />
-                  </span>
+                <div className="flex items-center space-x-4 pt-4 border-t border-[#B7B0A4]/20 relative z-10">
+                  {t.image_url && (
+                    <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden shrink-0 border border-[#B7B0A4]/30">
+                      <img src={t.image_url} alt={t.buyer_name} className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                  <div>
+                    <h4 className="font-serif text-lg text-[#20201E]">{t.buyer_name}</h4>
+                    <p className="text-[10px] uppercase tracking-wider text-[#73716B]">
+                      Matched with "{t.horse_name}" {t.location ? `· ${t.location}` : ''}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      )}
 
-      {/* 6. CONTACT CTA SECTION */}
+      {/* 5. CONTACT CTA SECTION */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="bg-[#FFFFFF] border border-[#B7B0A4]/40 p-10 sm:p-16 lg:p-20 text-center space-y-6">
           <span className="text-[10px] uppercase tracking-[0.3em] text-[#A89472] font-semibold">
-            Private Viewings & Consultations
+            Ready to find your match?
           </span>
-
           <h2 className="font-serif text-3xl sm:text-5xl text-[#20201E] max-w-2xl mx-auto font-normal">
-            Begin a conversation with our estate directors.
+            Start the conversation today.
           </h2>
-
           <p className="text-sm sm:text-base text-[#73716B] max-w-xl mx-auto font-light leading-relaxed">
-            For further details, comprehensive veterinary dossiers, additional private footage, or to arrange an unhurried estate viewing in Normandy, please reach out to our concierge.
+            Fill out our Buyer Application to let us know what you are looking for, or browse our current selection of available horses.
           </p>
-
+          
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => onNavigate('/contact')}
               className="w-full sm:w-auto px-8 py-3.5 bg-[#24362D] text-[#FAF9F6] text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#1b2922] transition-colors"
             >
-              Contact The Breeder
+              Buyer Application
             </button>
             <button
               onClick={() => onNavigate('/horses')}
               className="w-full sm:w-auto px-8 py-3.5 border border-[#20201E] text-[#20201E] text-xs uppercase tracking-[0.2em] hover:bg-[#FAF9F6] transition-colors"
             >
-              Explore Horses For Sale
+              Explore Horses
             </button>
           </div>
         </div>
       </section>
+
     </div>
   );
 };

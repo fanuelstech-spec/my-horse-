@@ -54,6 +54,11 @@ interface EstateContextType {
   deleteJournalPost: (id: string) => Promise<void>;
   getJournalPostBySlug: (slug: string) => JournalPost | undefined;
 
+  // Testimonials
+  addTestimonial: (data: Omit<SuccessStory, 'id' | 'created_at' | 'updated_at'>) => Promise<SuccessStory>;
+  updateTestimonial: (id: string, updates: Partial<SuccessStory>) => Promise<SuccessStory>;
+  deleteTestimonial: (id: string) => Promise<void>;
+
   // Contact / Enquiry Actions
   submitEnquiry: (data: { name: string; email: string; phone?: string; subject: string; message: string; horse_name?: string; horse_id?: string }) => Promise<ContactMessage>;
   updateMessageStatus: (id: string, status: ContactMessage['status']) => Promise<void>;
@@ -869,6 +874,7 @@ export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         horses,
         rescues,
         journal,
+        testimonials,
         messages,
         settings,
         currentUser,
@@ -884,6 +890,9 @@ export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         saveJournalPost,
         deleteJournalPost,
         getJournalPostBySlug,
+        addTestimonial,
+        updateTestimonial,
+        deleteTestimonial,
         submitEnquiry,
         updateMessageStatus,
         deleteMessage,

@@ -17,6 +17,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
     { label: 'About', path: '/about' },
     { label: 'Horses', path: '/horses' },
     { label: 'Rescue', path: '/rescue' },
+    { label: 'Testimonials', path: '/testimonials' },
     { label: 'Contact', path: '/contact' },
   ];
 

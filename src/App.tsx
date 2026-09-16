@@ -12,6 +12,7 @@ import { RescuePage } from './pages/RescuePage';
 import { RescueDetailPage } from './pages/RescueDetailPage';
 import { ContactPage } from './pages/ContactPage';
 import { PrivacyPage, TermsPage } from './pages/LegalPages';
+import { TestimonialsPage } from './pages/TestimonialsPage';
 
 // Admin pages & components
 import { AdminLayout } from './components/admin/AdminLayout';
@@ -163,6 +164,11 @@ function EstateAppContent() {
           onNavigate={navigate}
         />
       );
+    }
+
+    // Testimonials
+    if (currentPath === '/testimonials') {
+      return <TestimonialsPage onNavigate={navigate} />;
     }
 
     // 7. Legal

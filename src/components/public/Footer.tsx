@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </p>
 
             <p className="text-sm text-[#73716B] leading-relaxed max-w-md">
-              A private stud farm in the heart of the Pays d'Auge dedicated to the disciplined breeding of high-performance Warmblood sport horses and equine rehabilitation.
+              Based in Houston, Texas, connecting buyers with quality horses while providing a professional, transparent, and straightforward purchasing experience.
             </p>
           </div>
 
@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={() => onNavigate('/about')}
                   className="hover:text-white transition-colors"
                 >
-                  Our Heritage & Estate
+                  About Us
                 </button>
               </li>
               <li>
@@ -52,7 +52,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={() => onNavigate('/horses')}
                   className="hover:text-white transition-colors"
                 >
-                  Available Sport Horses
+                  Available Horses
                 </button>
               </li>
               <li>
@@ -60,15 +60,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={() => onNavigate('/rescue')}
                   className="hover:text-white transition-colors"
                 >
-                  Sanctuary & Rescue Stories
+                  Horse Rescue
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('/journal')}
+                  onClick={() => onNavigate('/testimonials')}
                   className="hover:text-white transition-colors"
                 >
-                  The Estate Journal
+                  Testimonials
                 </button>
               </li>
               <li>
@@ -76,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={() => onNavigate('/contact')}
                   className="hover:text-white transition-colors"
                 >
-                  Private Enquiries & Viewings
+                  Contact Us
                 </button>
               </li>
             </ul>

@@ -266,7 +266,35 @@ export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
           setRescues(rescuesRes.data);
         }
         if (journalRes.data && journalRes.data.length > 0) {
-          setJournal(journalRes.data);
+          const allPosts = journalRes.data;
+          const regularPosts = allPosts.filter((p: any) => p.category !== 'Testimonial');
+          const testimonialPosts = allPosts.filter((p: any) => p.category === 'Testimonial');
+
+          setJournal(regularPosts);
+
+          if (testimonialPosts.length > 0) {
+            const parsedTestimonials: SuccessStory[] = testimonialPosts.map((p: any) => {
+              let details = { horse_name: p.excerpt || 'Horse', location: '', testimonial: p.content, image_url: p.featured_image };
+              try {
+                const parsed = JSON.parse(p.content);
+                if (parsed && parsed.testimonial) {
+                  details = parsed;
+                }
+              } catch {}
+              return {
+                id: p.id,
+                buyer_name: p.title,
+                horse_name: details.horse_name || 'Horse',
+                location: details.location || null,
+                testimonial: details.testimonial || p.content,
+                image_url: details.image_url || p.featured_image || null,
+                published: p.published,
+                created_at: p.created_at,
+                updated_at: p.updated_at,
+              };
+            });
+            setTestimonials(parsedTestimonials);
+          }
         }
         if (settingsRes.data) {
           setSettings(settingsRes.data);
@@ -801,14 +829,46 @@ export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, []);
 
   // 7. Image Upload Helper
-  const addTestimonial = useCallback(async (data: Omit<SuccessStory, 'id' | 'created_at' | 'updated_at'>) => {
+        const addTestimonial = useCallback(async (data: Omit<SuccessStory, 'id' | 'created_at' | 'updated_at'>) => {
+    const id = generateUUID();
+    const now = new Date().toISOString();
     const newTestimonial: SuccessStory = {
       ...data,
-      id: Math.random().toString(36).substr(2, 9),
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
+      id,
+      created_at: now,
+      updated_at: now,
     };
     setTestimonials(prev => [newTestimonial, ...prev]);
+
+    if (isSupabaseConfigured && supabase) {
+      try {
+        const postPayload = {
+          id: newTestimonial.id,
+          title: newTestimonial.buyer_name,
+          slug: `testimonial-${newTestimonial.id}`,
+          excerpt: newTestimonial.location || newTestimonial.horse_name,
+          content: JSON.stringify({
+            horse_name: newTestimonial.horse_name,
+            location: newTestimonial.location,
+            testimonial: newTestimonial.testimonial,
+            image_url: newTestimonial.image_url,
+          }),
+          category: 'Testimonial',
+          featured_image: newTestimonial.image_url || 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1600&q=85',
+          author: newTestimonial.buyer_name,
+          published: newTestimonial.published,
+          published_at: newTestimonial.created_at,
+          seo_title: `${newTestimonial.buyer_name} Testimonial`,
+          seo_description: newTestimonial.testimonial.substring(0, 150),
+          featured: false,
+          created_at: newTestimonial.created_at,
+          updated_at: newTestimonial.updated_at,
+        };
+        await supabase.from('journal_posts').insert(postPayload);
+      } catch (e) {
+        console.warn('Supabase testimonial sync skipped:', e);
+      }
+    }
     return newTestimonial;
   }, []);
 
@@ -822,11 +882,42 @@ export const EstateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       return t;
     }));
     if (!updatedTestimonial) throw new Error('Testimonial not found');
+
+    if (isSupabaseConfigured && supabase) {
+      try {
+        const postPayload = {
+          title: updatedTestimonial.buyer_name,
+          slug: `testimonial-${updatedTestimonial.id}`,
+          excerpt: updatedTestimonial.location || updatedTestimonial.horse_name,
+          content: JSON.stringify({
+            horse_name: updatedTestimonial.horse_name,
+            location: updatedTestimonial.location,
+            testimonial: updatedTestimonial.testimonial,
+            image_url: updatedTestimonial.image_url,
+          }),
+          category: 'Testimonial',
+          featured_image: updatedTestimonial.image_url || 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1600&q=85',
+          author: updatedTestimonial.buyer_name,
+          published: updatedTestimonial.published,
+          updated_at: updatedTestimonial.updated_at,
+        };
+        await supabase.from('journal_posts').update(postPayload).eq('id', id);
+      } catch (e) {
+        console.warn('Supabase testimonial update sync skipped:', e);
+      }
+    }
     return updatedTestimonial;
   }, []);
 
   const deleteTestimonial = useCallback(async (id: string) => {
     setTestimonials(prev => prev.filter(t => t.id !== id));
+    if (isSupabaseConfigured && supabase) {
+      try {
+        await supabase.from('journal_posts').delete().eq('id', id);
+      } catch (e) {
+        console.warn('Supabase testimonial delete sync skipped:', e);
+      }
+    }
   }, []);
 
   const uploadImage = useCallback(

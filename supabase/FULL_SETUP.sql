@@ -341,3 +341,21 @@ CREATE POLICY "storage_insert_auth" ON storage.objects FOR INSERT TO authenticat
 CREATE POLICY "storage_update_auth" ON storage.objects FOR UPDATE TO authenticated USING (bucket_id IN ('horse-images', 'rescue-images', 'journal-images', 'site-images'));
 CREATE POLICY "storage_delete_auth" ON storage.objects FOR DELETE TO authenticated USING (bucket_id IN ('horse-images', 'rescue-images', 'journal-images', 'site-images'));
 
+
+
+-- Testimonials Table
+CREATE TABLE IF NOT EXISTS public.testimonials (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    buyer_name TEXT NOT NULL,
+    horse_name TEXT NOT NULL,
+    location TEXT,
+    testimonial TEXT NOT NULL,
+    image_url TEXT,
+    published BOOLEAN NOT NULL DEFAULT true,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+ALTER TABLE public.testimonials ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "testimonials_read_public" ON public.testimonials FOR SELECT USING (true);
+CREATE POLICY "testimonials_write_auth" ON public.testimonials FOR ALL TO authenticated USING (true) WITH CHECK (true);
